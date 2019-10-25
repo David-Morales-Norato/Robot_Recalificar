@@ -41,10 +41,9 @@ class Robot:
             ##########################
         except Exception as e:
             self.log += self.__LOGS[0]+ str(e)
-            raise
 
-    def recalificar_pregunta(self,links_cursos,camino_cpl,QUESTION_TITLE, nota):
-        nodes = camino_cpl.split("/")
+    def recalificar_pregunta(self,links_cursos,camino_cpl,questioin_id, nota):
+        nodes = camino_cpl#.split("/")
         for link_curse in links_cursos:
             try:
 
@@ -65,7 +64,7 @@ class Robot:
                     handles = self.driver.window_handles
                     self.driver.switch_to.window(handles[-1])
                     quest_window = self.driver.current_window_handle
-                    if(QUESTION_TITLE in self.driver.title):
+                    if(questioin_id in self.driver.title):
                         try:
                             self.log += self.__LOGS[3] + self.driver.title
                             self.driver.find_element_by_link_text(self.__RESCORE_STRING).click()
@@ -85,6 +84,7 @@ class Robot:
             except Exception as e:
                 self.log+=self.__LOGS[7]+curse_title +"| EXCEPTION: "+ str(e)
 
+        
     def revisar_log(self):
         cursos_procesados = self.log.count("[1]")
         preguntas_procesadas = self.log.count("[2]")
