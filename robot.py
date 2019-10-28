@@ -13,9 +13,10 @@ class Robot:
         self.log = ''
         self.driver = webdriver.Chrome(executable_path = CHROME_DRIVER_PATH)
         self.__RESCORE_STRING = "Escribir comentario o corregir la calificación"
+        self.__QUESTION_LINK = "https://tic.uis.edu.co/ava/mod/quiz/index.php?id="
         self.__LOGS = ["|[-1] Fallo Al hacer autenticación| EXCEPTION: ",
                         "|[1] Curso a modificar: ",
-                        "|[-2] Error en el camino al Cuestionario| Exception: ",
+                        "|[-2] Error al encontrar CPS al Cuestionario| Exception: ",
                         "|[2] Se va a modificar: ",
                         "|[3] Pregunta modificada satisfactoriamente ",
                         "|[-3] Fallo al recalificar pregunta| EXCEPTION: ",
@@ -42,20 +43,18 @@ class Robot:
         except Exception as e:
             self.log += self.__LOGS[0]+ str(e)
 
-    def recalificar_pregunta(self,links_cursos,camino_cpl,questioin_id, nota):
-        nodes = camino_cpl#.split("/")
+    def recalificar_pregunta(self,links_cursos,CPS,questioin_id, nota):
         for link_curse in links_cursos:
+            id = link_curse.split('=')[1]
+            link_question = self.__QUESTION_LINK+id
             try:
-
-                self.driver.get(link_curse)
-                curse_title = self.driver.title
-                self.log += self.__LOGS[1] + curse_title
-                for node in nodes:
-                    try:
-                        self.driver.find_element_by_partial_link_text(node).click()
-                    except Exception as e:
-                        self.log +=self.__LOGS[2]+ str(e)
-                        break
+                self.log += self.__LOGS[1] + id
+                self.driver.get(link_question)
+                try:
+                    self.driver.find_element_by_partial_link_text(CPS).click()
+                except Exception as e:
+                    self.log +=self.__LOGS[2]+ str(e)
+                self.driver.find_element_by_partial_link_text("Resultados").click()
                 table = self.driver.find_element_by_id("attempts")
                 main_window = self.driver.current_window_handle
                 questions = table.find_elements_by_xpath(".//*[@title = 'Revisar respuesta']")
@@ -82,7 +81,7 @@ class Robot:
                     self.driver.switch_to.window(main_window)
                     self.log+=self.__LOGS[6]
             except Exception as e:
-                self.log+=self.__LOGS[7]+curse_title +"| EXCEPTION: "+ str(e)
+                self.log+=self.__LOGS[7]+id +"| EXCEPTION: "+ str(e)
 
         
     def revisar_log(self):

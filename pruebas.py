@@ -10,9 +10,9 @@ links_cursos = datos[2]
 camino_cpl = datos[3]
 QUESTION_ID = datos[4][0]
 log = datos[5]
+camino_cpl = "CPS1.4"
 rob = Robot(CHROME_DRIVER_PATH)
 rob.autenticacion_tic(NICKNAME,PASSWORD)
 rob.recalificar_pregunta(links_cursos,camino_cpl,QUESTION_ID,"1")
-print(rob.log)
 
 
