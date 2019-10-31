@@ -11,7 +11,7 @@ def leer_datos(file_name):
             else:
                 pass
         except Exception as e:
-            log += str(e)
+            log += "Fallo al leer columna: " + str(e) + "\n"
             cursos = None
 
         try:
@@ -21,17 +21,17 @@ def leer_datos(file_name):
             else:
                 pass
         except Exception as e:
-            log += str(e)
+            log += "Fallo al leer columna: " + str(e) + "\n"
             camino = None
 
         try: 
             id_pregunta = data["Id pregunta"].dropna().tolist()
             if(len(id_pregunta) != 1):
-                raise Exception("Fallo al leer Id pregunta")
+                raise Exception("Id pregunta filas")
             else:
                 pass
         except Exception as e:
-            log += str(e)
+            log += "Fallo al leer columna: " + str(e) + "\n"
             id_pregunta = None
         
         try:
@@ -41,7 +41,7 @@ def leer_datos(file_name):
             else:
                 pass
         except Exception as e:
-            log += str(e)
+            log += "Fallo al leer columna: " + str(e) + "\n"
             calificacion = None
     except Exception as e:
         log += str(e)

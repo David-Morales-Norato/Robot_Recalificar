@@ -25,7 +25,8 @@ class robot_gui():
         #Ventana principal.
         self.root = tk.Tk()
         self.root.title("Robot para recalificar preguntas")
-        self.root.resizable(False, False)
+        m = self.root.maxsize()
+        self.root.geometry('{}x{}+0+0'.format(*m))
 
         #Frame donde van a estar ubicados las entradas de usuario y contraseña.
         frame_left = tk.Frame(self.root, pady = 100, padx = 100)
@@ -82,18 +83,22 @@ class robot_gui():
                     self.run_robot(datos[0],datos[1][0],datos[2][0],datos[3][0])
                 else:
                     self.log += datos[4]
+                    self.label_logs_result.config(text = datos[4])
 
     def run_robot(self,links_cursos,CPL,QUESTION_ID,CALIFICACION):
         self.robot = Robot(self.DRIVER_PATH)
 
         self.robot.autenticacion_tic(self.input_user_entry.get(),self.input_pass_entry.get())
         log = self.robot.log
-        print(log)
         if(len(log)>1):
             self.robot.cerrar()
             self.log += log
-            self.label_logs_result.config(text = self.LOGS[0])
+            print(log)
+            self.label_logs_result.config(text = log)
+            return
+
         self.robot.recalificar_pregunta(links_cursos,CPL,QUESTION_ID,CALIFICACION)
+        self.imprimir_log()
 
     def open_file(self):
         file_path = tk.filedialog.askopenfilename(filetypes =(("Archivo CSV", "*.csv"),("Todos los archivos","*.*")),
@@ -106,6 +111,12 @@ class robot_gui():
             self.archivo_cargado = False
             self.log += self.LOGS[0] + str(self.file_path)
             self.label_logs_result.config(text = self.LOGS[0])
+
+
+    def imprimir_log(self):
+        self.label_logs_result.config(text = self.robot.revisar_log())
+        print(self.robot.log)
+
         
 
 
