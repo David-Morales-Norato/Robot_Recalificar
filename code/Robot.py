@@ -48,7 +48,7 @@ class Robot:
         except Exception as e:
             self.log = self.__LOGS[0]+ str(e)
 
-    def recalificar_pregunta(self,links_cursos,CPS,questioin_id, nota):
+    def recorrer_cursos(self,links_cursos,CPS,question_id, nota):
 
         for link_curse in links_cursos: # Para cada curso de los que se proporcionaron
             id = link_curse.split('=')[1] #Obtenemos el id del curso
@@ -70,34 +70,37 @@ class Robot:
                 self.driver.find_element_by_partial_link_text("Resultados").click()
                 table = self.driver.find_element_by_id("attempts")
                 main_window = self.driver.current_window_handle
-
-                # Buscamos todas las preguntas que han sido respondidas por estudiantes
-                questions = table.find_elements_by_xpath(".//*[@title = 'Revisar respuesta']")
-
-                # # Se va a revisar cada pregunta
-                # for question in questions:
-                #     question.click()
-
-                #     # Cambiamos a la nueva ventana que es la preunta
-                #     handles = self.driver.window_handles
-                #     self.driver.switch_to.window(handles[-1])
-                #     quest_window = self.driver.current_window_handle
-
-                #     # Verifica que la pregunta sea la que se va a modificar
-                #     if(questioin_id in self.driver.title):
-                #         # La cambia
-                #         self.cambiar_calificacion(quest_window,nota)
-                        
-                #     # Si es o no es la pregunta solicitada, cierra y vuelve a la ventana original
-                #     self.driver.close()
-                #     self.driver.switch_to.window(main_window)
-
-                # Si no ha saltado alguna excepción, se guarda que fue un curso exitoso
-                self.log+=self.__LOGS[6]
+                #Recorremos las preguntas en caso de que sean de emparejamiento
+                self.recorrer_preguntas(table, main_window, question_id, nota)
 
             except Exception as e:
                 # Si ocurre un error se guarda el fallo
                 self.log+=self.__LOGS[7]+id +"| EXCEPTION: "+ str(e)
+
+    def recorrer_preguntas(self, table, main_window, question_id, nota):
+        # Buscamos todas las preguntas que han sido respondidas por estudiantes
+        questions = table.find_elements_by_xpath(".//*[@title = 'Revisar respuesta']")
+
+        # Se va a revisar cada pregunta
+        for question in questions:
+            question.click()
+
+            # Cambiamos a la nueva ventana que es la preunta
+            handles = self.driver.window_handles
+            self.driver.switch_to.window(handles[-1])
+            quest_window = self.driver.current_window_handle
+
+            # Verifica que la pregunta sea la que se va a modificar
+            if(question_id in self.driver.title):
+                # La cambia
+                self.cambiar_calificacion(quest_window,nota)
+                
+            # Si es o no es la pregunta solicitada, cierra y vuelve a la ventana original
+            self.driver.close()
+            self.driver.switch_to.window(main_window)
+
+        #Si no ha saltado alguna excepción, se guarda que fue un curso exitoso
+        self.log+=self.__LOGS[6]
 
     def cambiar_calificacion(self, quest_window,nota):
         try:
@@ -110,12 +113,11 @@ class Robot:
 
             # Encontramos donde se va a modificar la nota y se le envía la nota asignada
             input_score = self.driver.find_element_by_xpath(".//div[@class = 'felement ftext']//input[@type = 'text']")
-            input_score.clear()
-            input_score.send_keys(nota)
+            #input_score.clear()
+            #input_score.send_keys(nota)
 
             # Se envía y la ventana cierra sola
             self.driver.find_element_by_id("id_submitbutton").click()
-            time.sleep(5)
 
             # guarda que modificó correctamente la pregunta y vuelve a la pestaña la pregunta
             self.log += self.__LOGS[4]

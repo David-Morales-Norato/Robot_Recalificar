@@ -112,7 +112,7 @@ class robot_gui():
             self.label_logs_result.config(text = log)
             return
 
-        self.robot.recalificar_pregunta(links_cursos,CPL,QUESTION_ID,CALIFICACION)
+        self.robot.recorrer_cursos(links_cursos,CPL,QUESTION_ID,CALIFICACION)
         self.button_log.config(state="normal")
         self.label_logs_result.config(text = "Terminado!")
         self.cerrar_driver()
