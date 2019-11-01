@@ -70,6 +70,7 @@ class Robot:
                 self.driver.find_element_by_partial_link_text("Resultados").click()
                 table = self.driver.find_element_by_id("attempts")
                 main_window = self.driver.current_window_handle
+
                 #Recorremos las preguntas en caso de que sean de emparejamiento
                 self.recorrer_preguntas(table, main_window, question_id, nota)
 
@@ -93,7 +94,7 @@ class Robot:
             # Verifica que la pregunta sea la que se va a modificar
             if(question_id in self.driver.title):
                 # La cambia
-                self.cambiar_calificacion(quest_window,nota)
+                self.cambiar_calificacion_emparejamiento(quest_window,nota)
                 
             # Si es o no es la pregunta solicitada, cierra y vuelve a la ventana original
             self.driver.close()
@@ -102,7 +103,7 @@ class Robot:
         #Si no ha saltado alguna excepción, se guarda que fue un curso exitoso
         self.log+=self.__LOGS[6]
 
-    def cambiar_calificacion(self, quest_window,nota):
+    def cambiar_calificacion_emparejamiento(self, quest_window,nota):
         try:
             # Se guarda a quíen se le va a modificar
             self.log += self.__LOGS[3] + self.driver.title
@@ -110,6 +111,18 @@ class Robot:
             # Cambiamos a la pestaña de edición
             self.driver.find_element_by_link_text(self.__RESCORE_STRING).click()
             self.driver.switch_to.window(self.driver.window_handles[-1])
+
+
+
+            # Modificar emparejamiento
+
+            # lo respondido está organizado en una tabla
+
+            # Enunciado > respuesta
+
+            # lo que escogió el ususario está con selected
+
+            # Hacer verificación pertinente
 
             # Encontramos donde se va a modificar la nota y se le envía la nota asignada
             input_score = self.driver.find_element_by_xpath(".//div[@class = 'felement ftext']//input[@type = 'text']")
