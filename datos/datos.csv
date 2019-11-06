@@ -1,17 +1,17 @@
-Cursos,Camino,Id pregunta,Calificacion
-https://tic.uis.edu.co/ava/course/view.php?id=12123,CPS1.4,T02.01.01_B002_N0,1
-https://tic.uis.edu.co/ava/course/view.php?id=12124,,,
-https://tic.uis.edu.co/ava/course/view.php?id=12095,,,
-https://tic.uis.edu.co/ava/course/view.php?id=12094,,,
-https://tic.uis.edu.co/ava/course/view.php?id=12093,,,
-https://tic.uis.edu.co/ava/course/view.php?id=12092,,,
-https://tic.uis.edu.co/ava/course/view.php?id=12091,,,
-https://tic.uis.edu.co/ava/course/view.php?id=12090,,,
-https://tic.uis.edu.co/ava/course/view.php?id=12089,,,
-https://tic.uis.edu.co/ava/course/view.php?id=12088,,,
-https://tic.uis.edu.co/ava/course/view.php?id=12087,,,
-https://tic.uis.edu.co/ava/course/view.php?id=12086,,,
-https://tic.uis.edu.co/ava/course/view.php?id=11605,,,
-https://tic.uis.edu.co/ava/course/view.php?id=11593,,,
-https://tic.uis.edu.co/ava/course/view.php?id=11599,,,
-https://tic.uis.edu.co/ava/course/view.php?id=11598,,,
+Cursos,CPS,Id pregunta,Calificacion,Enunciados,Respuestas
+https://tic.uis.edu.co/ava/course/view.php?id=12123,CPS1.4,T02.01.01_B002_N0,1,La composición relativa de átomos en un compuesto no cambia al cambiar su estado,Verdadero
+https://tic.uis.edu.co/ava/course/view.php?id=12124,,,,Un elemento está formado por átomos iguales,Verdadero
+https://tic.uis.edu.co/ava/course/view.php?id=12095,,,,Usando reacciones químicas un elemento se puede transformar en otro elemento,Falso
+https://tic.uis.edu.co/ava/course/view.php?id=12094,,,,Cada elemento está formado por partículas indivisibles llamadas átomo,Verdadero
+https://tic.uis.edu.co/ava/course/view.php?id=12093,,,,,
+https://tic.uis.edu.co/ava/course/view.php?id=12092,,,,,
+https://tic.uis.edu.co/ava/course/view.php?id=12091,,,,,
+https://tic.uis.edu.co/ava/course/view.php?id=12090,,,,,
+https://tic.uis.edu.co/ava/course/view.php?id=12089,,,,,
+https://tic.uis.edu.co/ava/course/view.php?id=12088,,,,,
+https://tic.uis.edu.co/ava/course/view.php?id=12087,,,,,
+https://tic.uis.edu.co/ava/course/view.php?id=12086,,,,,
+https://tic.uis.edu.co/ava/course/view.php?id=11605,,,,,
+https://tic.uis.edu.co/ava/course/view.php?id=11593,,,,,
+https://tic.uis.edu.co/ava/course/view.php?id=11599,,,,,
+https://tic.uis.edu.co/ava/course/view.php?id=11598,,,,,

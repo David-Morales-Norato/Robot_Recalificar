@@ -89,13 +89,13 @@ class robot_gui():
             if(len(log)>1): return
             if(self.archivo_cargado):
                 datos = leer_datos(self.file_path)
-                if(len(datos[4])<1):
-                    self.run_robot(datos[0],datos[1][0],datos[2][0],datos[3][0])
+                if(len(datos[-1])<1):
+                    self.run_robot(datos[0],datos[1][0],datos[2][0],datos[3],datos[4])
                 else:
-                    self.log += datos[4]
-                    self.label_logs_result.config(text = datos[4])
+                    self.log += datos[-1]
+                    self.label_logs_result.config(text = datos[-1])
 
-    def run_robot(self,links_cursos,CPL,QUESTION_ID,CALIFICACION):
+    def run_robot(self,links_cursos,CPL,QUESTION_ID,enunciados,resultados):
         try:
             self.robot = Robot(self.DRIVER_PATH)
             
@@ -112,7 +112,7 @@ class robot_gui():
             self.label_logs_result.config(text = log)
             return
 
-        self.robot.recorrer_cursos(links_cursos,CPL,QUESTION_ID,CALIFICACION)
+        self.robot.recorrer_cursos(links_cursos,CPL,QUESTION_ID,enunciados,resultados)
         self.button_log.config(state="normal")
         self.label_logs_result.config(text = "Terminado!")
         self.cerrar_driver()
