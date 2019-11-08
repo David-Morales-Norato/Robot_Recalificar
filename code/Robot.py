@@ -10,10 +10,20 @@ import time
 class Robot:
     
     def __init__(self, CHROME_DRIVER_PATH):
+        ## Inicializaciones
+
         self.log = ''
+        # El driver del robot
         self.driver = webdriver.Chrome(executable_path = CHROME_DRIVER_PATH)
+        # Link de autenticación de tic-uis
+        self.__autentication_link = 'https://tic.uis.edu.co/ava/login/index_ingreso.php'
+        # Texto para recalificar una pregunta
         self.__RESCORE_STRING = "Escribir comentario o corregir la calificación"
+
+        # Link que lleva a los cuestionarios, falta el id del curso al final del link
         self.__QUESTION_LINK = "https://tic.uis.edu.co/ava/mod/quiz/index.php?id="
+
+        # Errores
         self.__LOGS = ["\n [-1] Fallo Al hacer autenticación| EXCEPTION: ",
                         "\n [1] Curso a modificar: ",
                         "\n [-2] Error al encontrar CPS al Cuestionario| Exception: ",
@@ -26,25 +36,34 @@ class Robot:
 
     def autenticacion_tic(self, nickName, password):
         try:
+            # Tiempo de dejar cargar chrome
             time.sleep(1)
-            self.driver.get('https://tic.uis.edu.co/ava/login/index_ingreso.php')
+            # Carga la página inicial de tic-uis
+            self.driver.get(self.__autentication_link)
             self.driver.maximize_window() 
+            # Tiempo para dejar que cargue la página
             time.sleep(3)
+
+            # da click en pregrado
             pregrado = self.driver.find_element_by_id('pregrado-head')
             pregrado.click()
+
+            # Encuentra usuario y contraseña
             userName = self.driver.find_element_by_name('username')
             passWord = self.driver.find_element_by_name('password')
-
+            
+            # Escribe las credenciales
             userName.send_keys(nickName)
             passWord.send_keys(password)
 
+            # Encuentra botón para enviar información
             login_attempt = self.driver.find_element_by_xpath("//*[@id='send']")
             login_attempt.submit()
             
+            # Si hay un fallo en la autenticación se muestra como un errorcode en el link
             if('?' in self.driver.current_url and "errorcode" in self.driver.current_url.split("?")[1]):
                 raise Exception("Error usuario o contraseña")
 
-            ##########################
         except Exception as e:
             self.log = self.__LOGS[0]+ str(e)
 
@@ -67,7 +86,12 @@ class Robot:
                 except Exception as e:
                     # En caso de no ser encontrado se captura la excepción y  se registra en el log
                     self.log +=self.__LOGS[2]+ str(e)
-
+                
+                # racal_todo = self.driver.find_element_by_xpath("//input[@value = 'Recalificar todo']")
+                # racal_todo.location_once_scrolled_into_view
+                # racal_todo.click()
+                # self.driver.find_element_by_xpath("//input[@value = 'Continuar']")
+                
                 # Preparación para llegar a las preguntas
                 self.driver.find_element_by_partial_link_text("Resultados").click()
                 table = self.driver.find_element_by_id("attempts")
@@ -161,9 +185,7 @@ class Robot:
                 contador_respuestas_bien +=1
 
         nota = puntaje_por_pregunta*contador_respuestas_bien
-        print(nota)
         return nota
-
 
 
     def revisar_log(self):
