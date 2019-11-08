@@ -1,7 +1,8 @@
 
 """
-By David M. Norato (2019)
-5. Install ChromeDriver for Chrome V.77: 
+By David Morales Norato (2019)
+
+Coming soon
 """
 from selenium import webdriver
 from selenium.common.exceptions import NoSuchElementException,StaleElementReferenceException
@@ -91,7 +92,7 @@ class Robot:
                 # racal_todo.location_once_scrolled_into_view
                 # racal_todo.click()
                 # self.driver.find_element_by_xpath("//input[@value = 'Continuar']")
-                
+
                 # Preparación para llegar a las preguntas
                 self.driver.find_element_by_partial_link_text("Resultados").click()
                 table = self.driver.find_element_by_id("attempts")
@@ -149,7 +150,7 @@ class Robot:
             input_score = self.driver.find_element_by_xpath(".//div[@class = 'felement ftext']//input[@type = 'text']")
             input_score.location_once_scrolled_into_view
             #input_score.clear()
-            #input_score.send_keys(nota)
+            #input_score.send_keys(str(nota))
 
             # Se envía y la ventana cierra sola
             guardar = self.driver.find_element_by_xpath("//input[@id = 'id_submitbutton']")
@@ -177,13 +178,20 @@ class Robot:
         puntaje_por_pregunta = max_punt/num_enun # Se calcula cuanto vale cada respuesta
 
         contador_respuestas_bien = 0
+
+        # Para cada enunciado de la pregunta
         for index in range(num_enun):
+            
+            # Comparamos la respuesta del estudiante con la que debería ser
             enun = enunciados_html[index].text
             respuesta_dada = respuestas_html[index].text
             respuesta_correcta = diccionario.get(enun)
-            if(respuesta_dada == respuesta_correcta):
+
+            if(respuesta_dada == respuesta_correcta): 
+                # En tal caso se aumenta el numero de respuestas bien
                 contador_respuestas_bien +=1
 
+        # Se calcula la nota que merece el estudiante
         nota = puntaje_por_pregunta*contador_respuestas_bien
         return nota
 
