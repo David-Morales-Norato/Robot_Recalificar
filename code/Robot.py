@@ -68,7 +68,7 @@ class Robot:
         except Exception as e:
             self.log = self.__LOGS[0]+ str(e)
 
-    def recorrer_cursos(self,links_cursos,CPS,question_id, enunciados,resultados):
+    def recorrer_cursos(self,links_cursos,CPS,question_id, enunciados,resultados, tipo_recalificacion):
 
         for link_curse in links_cursos: # Para cada curso de los que se proporcionaron
             id = link_curse.split('=')[1] #Obtenemos el id del curso
@@ -88,18 +88,25 @@ class Robot:
                     # En caso de no ser encontrado se captura la excepción y  se registra en el log
                     self.log +=self.__LOGS[2]+ str(e)
                 
-                # racal_todo = self.driver.find_element_by_xpath("//input[@value = 'Recalificar todo']")
-                # racal_todo.location_once_scrolled_into_view
-                # racal_todo.click()
-                # self.driver.find_element_by_xpath("//input[@value = 'Continuar']")
-
-                # Preparación para llegar a las preguntas
+                # Entramos a los resultados del cuestionario
                 self.driver.find_element_by_partial_link_text("Resultados").click()
-                table = self.driver.find_element_by_id("attempts")
-                main_window = self.driver.current_window_handle
 
-                #Recorremos las preguntas en caso de que sean de emparejamiento
-                self.recorrer_preguntas(table, main_window, question_id,enunciados,resultados)
+                if(tipo_recalificacion == 1): # En caso de recalificar todo
+
+                    self.driver.find_element_by_xpath("//input[@value='Recalificar todo']").click()
+                    self.driver.find_element_by_xpath("//input[@value = 'Continuar']").click()
+
+                elif(tipo_recalificacion == 2): # En caso de recalificar emparejamiento
+                    # Preparación para llegar a las preguntas
+                    
+                    table = self.driver.find_element_by_id("attempts")
+                    main_window = self.driver.current_window_handle
+
+                    #Recorremos las preguntas en caso de que sean de emparejamiento
+                    self.recorrer_preguntas(table, main_window, question_id,enunciados,resultados)
+
+                #Si no ha saltado alguna excepción, se guarda que fue un curso exitoso
+                self.log+=self.__LOGS[6]
 
             except Exception as e:
                 # Si ocurre un error se guarda el fallo
@@ -127,9 +134,6 @@ class Robot:
             self.driver.close()
             self.driver.switch_to.window(main_window)
 
-        #Si no ha saltado alguna excepción, se guarda que fue un curso exitoso
-        self.log+=self.__LOGS[6]
-
     def cambiar_calificacion_emparejamiento(self, quest_window,enunciados,resultados):
         try:
             # Se guarda a quíen se le va a modificar
@@ -149,8 +153,8 @@ class Robot:
             # Encontramos donde se va a modificar la nota y se le envía la nota asignada
             input_score = self.driver.find_element_by_xpath(".//div[@class = 'felement ftext']//input[@type = 'text']")
             input_score.location_once_scrolled_into_view
-            #input_score.clear()
-            #input_score.send_keys(str(nota))
+            input_score.clear()
+            input_score.send_keys(str(nota))
 
             # Se envía y la ventana cierra sola
             guardar = self.driver.find_element_by_xpath("//input[@id = 'id_submitbutton']")
@@ -196,23 +200,7 @@ class Robot:
         return nota
 
 
-    def revisar_log(self):
-        salida = ''
-        cursos_procesados = self.log.count("[1]")
-        preguntas_procesadas = self.log.count("[2]")
-        preguntas_exitosas = self.log.count("[3]")
-        cursos_exitosos = self.log.count("[4]")
-        fallos_camino = self.log.count("[-2]")
-        preguntas_fallidas = self.log.count("[-3]")
-        cursos_fallidos = self.log.count("[-4]")
-        salida += "Total cursos procesados: "+ str(cursos_procesados) + '\n'
-        salida += "Total cursos recorridos exitosamente: "+ str(cursos_exitosos) + '\n'
-        salida += "Total cursos recorridos incorrectamente: "+ str(cursos_fallidos) + '\n'
-        salida += "Total cursos con fallo en el camino a resultados: "+ str(fallos_camino) + '\n'
-        salida += "Total preguntas procesadas: "+ str(preguntas_procesadas) + '\n'
-        salida += "Total preguntas fallidas a procesar: "+ str(preguntas_fallidas) + '\n'
-        salida += "Total preguntas modificadas correctamente: "+ str(preguntas_exitosas) + '\n'
-        return salida
+
         
     def cerrar(self):
         self.driver.quit()

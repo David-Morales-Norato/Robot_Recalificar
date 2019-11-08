@@ -99,4 +99,7 @@ def lectura_recalificar_todo(data):
         log += "Fallo al leer columna: " + str(e) + "\n"
         CPS = None
 
-    return [cursos,CPS, log]
+    id_pregunta = None
+    enunciados = None
+    respuestas = None
+    return [cursos, CPS, id_pregunta,enunciados,respuestas,log]

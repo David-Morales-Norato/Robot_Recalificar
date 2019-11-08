@@ -119,7 +119,8 @@ class robot_gui():
                 # Lemos los datos del archivo CSV
                 datos = leer_datos(self.file_path, self.opcion.get())
                 if(len(datos[-1])<1): # Si no hay algún error al leer los datos
-                    self.run_robot(datos[0],datos[1][0],datos[2][0],datos[3],datos[4])
+                    # Se pasan los datos y la opción de la tarea del robot
+                    self.run_robot(datos,self.opcion.get())
                 else:
                     # Si hay por lo menos un error lo imprime en el label de la GUI
                     self.log += datos[-1]
@@ -127,7 +128,18 @@ class robot_gui():
 
 
 
-    def run_robot(self,links_cursos,CPL,QUESTION_ID,enunciados,resultados):
+    def run_robot(self,datos, tipo_tarea):
+
+        links_cursos = datos[0] # Adquirimos los links de los cursos
+        CPL = datos[1][0] # Adquirimos el CPL a calificar
+        if(not (datos[2] == None and datos[3] == None and datos[4] == None)):
+            QUESTION_ID = datos[2][0] # Adquirimos el id de la pregunta a  recalificar
+            enunciados = datos[3] # Adquirimos los enunciados
+            resultados = datos[4] # Adquirimos las respuestas
+        else: 
+            QUESTION_ID = None
+            enunciados = None
+            resultados = None
         try:
             # intenta cargar el driver del navegador
             self.robot = Robot(self.DRIVER_PATH)
@@ -149,8 +161,16 @@ class robot_gui():
             self.label_logs_result.config(text = log)
             return
 
-        # Corre el robot
-        self.robot.recorrer_cursos(links_cursos,CPL,QUESTION_ID,enunciados,resultados)
+        # Si la tarea es 1 o 2 es que se desea recorrer los cursos en los cursos
+
+        if(tipo_tarea == 1 or tipo_tarea == 2 ):
+            # 1 es recalificar todo
+            # 2 es recalificar emparejamiento
+            tipo_recalificacion = tipo_tarea
+            # Corre el robot y recorre cursos para recalificar 
+            self.robot.recorrer_cursos(links_cursos,CPL,QUESTION_ID,enunciados,resultados, tipo_recalificacion)
+
+        # else diferentes casos
 
         # Activa el botón para ver las estadísticas
         self.button_log.config(state="normal")
@@ -176,10 +196,35 @@ class robot_gui():
             self.log += self.LOGS[0] + str(self.file_path)
             self.label_logs_result.config(text = self.LOGS[0])
 
+    def revisar_log(self):
+
+        log = self.robot.log
+        salida = ''
+
+
+        cursos_procesados = log.count("[1]")
+        cursos_exitosos = log.count("[4]")
+        fallos_camino = log.count("[-2]")
+        cursos_fallidos = log.count("[-4]")
+        salida += "Total cursos procesados: "+ str(cursos_procesados) + '\n'
+        salida += "Total cursos recorridos exitosamente: "+ str(cursos_exitosos) + '\n'
+        salida += "Total cursos recorridos incorrectamente: "+ str(cursos_fallidos) + '\n'
+        salida += "Total cursos con fallo en el camino a resultados: "+ str(fallos_camino) + '\n'
+
+        if(self.opcion.get() == 2):
+            
+            preguntas_procesadas = log.count("[2]")
+            preguntas_exitosas = log.count("[3]")
+            preguntas_fallidas = log.count("[-3]")
+            salida += "Total preguntas procesadas: "+ str(preguntas_procesadas) + '\n'
+            salida += "Total preguntas fallidas a procesar: "+ str(preguntas_fallidas) + '\n'
+            salida += "Total preguntas modificadas correctamente: "+ str(preguntas_exitosas) + '\n'
+        return salida
 
     def imprimir_estadisticas(self):
         # Imprime las estadísticas en el label de la GUI
-        self.label_logs_result.config(text = self.robot.revisar_log())
+        self.label_logs_result.config(text = self.revisar_log())
+
 
     def cerrar_driver(self):
         #Cierra el driver
