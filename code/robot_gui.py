@@ -3,7 +3,8 @@ import tkinter.filedialog
 from Robot import Robot
 from read_files import leer_datos
 import os
-import sys
+from sys import platform
+from sys import maxsize as msBits
 
 class robot_gui():
     def __init__(self):
@@ -36,7 +37,7 @@ class robot_gui():
         self.root.geometry('{}x{}+0+0'.format(*m))
 
         #Frame donde van a estar ubicados las entradas de usuario y contraseña.
-        frame_left = tk.Frame(self.root, pady = 100, padx = 100)
+        frame_left = tk.Frame(self.root)
         frame_left.pack(side = "left")
 
         #Botón para cargar los datos del csv
@@ -79,18 +80,27 @@ class robot_gui():
         frame_right.pack(side = "right")
 
         #Label donde se van a imprimir las estadísticas
-        self.label_logs_result = tk.Label(frame_right, text="", padx = 20, pady = 40)  # Label para escribir mensajes
+        self.label_logs_result = tk.Label(frame_right, text="",anchor = "center")  # Label para escribir mensajes
         self.label_logs_result.grid(row = 0, column = 0)
 
         # Botón que imprime estadísticas del proceso realizado.
         # Se activa una vez que se haya terminado de ejecutar el robot
         self.button_log = tk.Button(frame_right, text = "Revisar estadisticas",state="disabled",comman = lambda:self.imprimir_estadisticas()) 
-        self.button_log.grid(row = 2, column = 0) 
+        self.button_log.grid(row = 1, column = 0) 
 
         self.root.mainloop()
 
     def get_path_driver(self):
-        return os.path.dirname(os.path.dirname(os.path.abspath(__file__))) + "/chromedriver/chromedriver"
+
+        carpeta_drivers = os.path.dirname(os.path.dirname(os.path.abspath(__file__))) + "/chromedriver/"
+        if platform == "linux" or platform == "linux2":
+            chrome_driver_path = 'Linux/'
+        elif platform == "darwin":
+            chrome_driver_path = 'OSX/'
+        elif platform == "win32":
+            chrome_driver_path = 'Win32/'
+
+        return carpeta_drivers+ chrome_driver_path+'chromedriver'
 
 
     def pre_run(self):
@@ -146,7 +156,7 @@ class robot_gui():
             
         except Exception as e: # Si hay algún problema cancela correr el robot e imprime un error
             self.log += "\n" + str(e)
-            self.label_logs_result.config(text = "Problema al cargar el driver de Google")
+            self.label_logs_result.config(text = "Problema al cargar el driver de Google\n"+str(e))
             return
 
         # Autenticación en tic-uis
