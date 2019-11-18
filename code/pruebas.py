@@ -1,2 +1,2 @@
-from robot_gui import robot_gui
-robot_gui()
+from robot_gui_recalificar import recalificar_gui
+recalificar_gui()
