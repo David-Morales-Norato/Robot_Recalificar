@@ -12,7 +12,7 @@ class robot_recalificar(Robot):
         self.__RESCORE_STRING = "Escribir comentario o corregir la calificación"
 
     def tratamiento_curso(self,datos, variables_de_control):
-        
+
         # Eleccion es el primer elemento
         eleccion = variables_de_control[0]
 
@@ -106,7 +106,6 @@ class robot_recalificar(Robot):
             self.log += self._LOGS[6]
             self.driver.switch_to.window(quest_window)
         except Exception as e:
-            print(e)
             # Si hay algún error guarda el fallo
             self.log +=self._LOGS[7] + str(e)
         
