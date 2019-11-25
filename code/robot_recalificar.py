@@ -6,7 +6,7 @@ class robot_recalificar(Robot):
         super().__init__(DRIVER_PATH)
 
         logs_recalificacion_preguntas = [ "\n [3] Pregunta modificada satisfactoriamente ",
-                 "\n [-3] Fallo al recalificar pregunta| EXCEPTION: ",]
+                 "\n [-3] Fallo al recalificar pregunta| EXCEPTION: "]
         self._LOGS = self._LOGS + logs_recalificacion_preguntas
         # Texto para recalificar una pregunta
         self.__RESCORE_STRING = "Escribir comentario o corregir la calificación"
