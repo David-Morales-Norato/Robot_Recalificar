@@ -11,7 +11,10 @@ class robot_recalificar(Robot):
         # Texto para recalificar una pregunta
         self.__RESCORE_STRING = "Escribir comentario o corregir la calificación"
 
-    def tratamiento_curso(self,datos, eleccion):
+    def tratamiento_curso(self,datos, variables_de_control):
+        
+        # Eleccion es el primer elemento
+        eleccion = variables_de_control[0]
 
         CPL = datos[1][0] # Adquirimos el CPL a calificar
         if(not (datos[2] == None and datos[3] == None and datos[4] == None)):
@@ -34,7 +37,6 @@ class robot_recalificar(Robot):
         
         # Entramos a los resultados del cuestionario
         self.driver.find_element_by_partial_link_text("Resultados").click()
-
         if(eleccion == 1): # En caso de recalificar todo
 
             self.driver.find_element_by_xpath("//input[@value='Recalificar todo']").click()

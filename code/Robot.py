@@ -25,7 +25,7 @@ class Robot(ABC):
         # Errores
         self._LOGS = ["\n [-1] Fallo Al hacer autenticación| EXCEPTION: ",
                         "\n [1] Curso a modificar: ",
-                        "\n [-2] Error al encontrar CPS al Cuestionario| Exception: ",
+                        "\n [-2] Error al encontrar la actividad| Exception: ",
                         "\n [2] Se va a modificar: ",
                         "\n [4] Curso terminado satisfactoriamente",
                         "\n [-4] Error al procesar curso: "]
@@ -66,6 +66,8 @@ class Robot(ABC):
 
     def recorrer_cursos(self,datos, eleccion):
         links_cursos = datos[0]
+        # Va a indicar el curso actual que se está tratando
+        contador = 0
         for link_curse in links_cursos: # Para cada curso de los que se proporcionaron
             id = link_curse.split('=')[1] #Obtenemos el id del curso
             link_question = self.__QUESTION_LINK+id # links a los cuestionarios de ese curso
@@ -73,16 +75,19 @@ class Robot(ABC):
                 self.log += self._LOGS[1] + id # Registramos curso a modificar
                 self.driver.get(link_question) # se dirige a ese link
 
+                # Esta tupla es el argumento donde irán las variables de control
+                # La elección indica que tipo de tarea se va a realizar
+                # El contador indica que fila de los datos se está tratando
+                variables_de_control = [eleccion,contador]
                 # Hacemos el debido tratamiento para el cual está recorriendo cursos
-                self.tratamiento_curso(datos,eleccion)
-
+                self.tratamiento_curso(datos,variables_de_control)
+                contador +=1
             except Exception as e:
                 # Si ocurre un error se guarda el fallo
-                print(e)
                 self.log+=self._LOGS[5]+id +"| EXCEPTION: "+ str(e)
 
     @abstractmethod
-    def tratamiento_curso(self,datos,eleccion):
+    def tratamiento_curso(self,datos,variables_de_control):
         pass
         
     def cerrar(self):

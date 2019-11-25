@@ -1,7 +1,7 @@
 from robot_gui import robot_gui, tk
 from robot_recalificar import robot_recalificar
-from read_files import leer_datos
-
+from read_files import leer_datos_recalificar
+DEBUG = True
 class recalificar_gui(robot_gui):
     def __init__(self):
         super().__init__()
@@ -14,11 +14,19 @@ class recalificar_gui(robot_gui):
         # Botones que son las opciones
         tk.Radiobutton(self.frame_left, text="recalificar todo",padx = 20, variable=self.opcion, value=1).grid(row=1,column=3)
         tk.Radiobutton(self.frame_left, text="recalificar emparejamiento",padx = 20, variable=self.opcion, value=2).grid(row=2,column=3)
+
+        if(DEBUG):
+            self.file_path = "/home/david-norato/Documentos/EXPERTIC/robot_recalificación/datos/datos_recalificar_empa.csv"
+            self.input_user_entry.insert(0,"exper-tic")
+            self.input_pass_entry.insert(0,"exper-tic")
+            self.archivo_cargado = True
+            self.opcion.set(2)
         self.root.mainloop()
+
 
     def pre_run_especifico(self):
         # Lemos los datos del archivo CSV
-        datos = leer_datos(self.file_path, self.opcion.get())
+        datos = leer_datos_recalificar(self.file_path, self.opcion.get())
         if(len(datos[-1])<1): # Si no hay algún error al leer los datos
             # Se pasan los datos y la opción de la tarea del robot
             self.run_robot(datos,self.opcion.get())
@@ -39,3 +47,29 @@ class recalificar_gui(robot_gui):
         tipo_recalificacion = tipo_tarea
         # Corre el robot y recorre cursos para recalificar 
         self.robot.recorrer_cursos(datos, tipo_recalificacion)
+
+
+    def revisar_log(self):
+
+        log = self.robot.log
+        salida = ''
+
+
+        cursos_procesados = log.count("[1]")
+        cursos_exitosos = log.count("[4]")
+        fallos_camino = log.count("[-2]")
+        cursos_fallidos = log.count("[-4]")
+        salida += "Total cursos procesados: "+ str(cursos_procesados) + '\n'
+        salida += "Total cursos recorridos exitosamente: "+ str(cursos_exitosos) + '\n'
+        salida += "Total cursos recorridos incorrectamente: "+ str(cursos_fallidos) + '\n'
+        salida += "Total cursos con fallo en el camino a resultados: "+ str(fallos_camino) + '\n'
+
+        if(self.opcion.get() == 2):
+            
+            preguntas_procesadas = log.count("[2]")
+            preguntas_exitosas = log.count("[3]")
+            preguntas_fallidas = log.count("[-3]")
+            salida += "Total preguntas procesadas: "+ str(preguntas_procesadas) + '\n'
+            salida += "Total preguntas fallidas a procesar: "+ str(preguntas_fallidas) + '\n'
+            salida += "Total preguntas modificadas correctamente: "+ str(preguntas_exitosas) + '\n'
+        return salida
