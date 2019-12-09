@@ -1,6 +1,6 @@
 from robot_gui import robot_gui, tk
 from robot_recalificar import robot_recalificar
-from read_files import leer_datos_recalificar
+from leer_recalificar import leer_datos_recalificar
 DEBUG = True
 class recalificar_gui(robot_gui):
     def __init__(self):
@@ -16,24 +16,25 @@ class recalificar_gui(robot_gui):
         tk.Radiobutton(self.frame_left, text="recalificar emparejamiento",padx = 20, variable=self.opcion, value=2).grid(row=2,column=3)
 
         if(DEBUG):
-            self.file_path = "/home/david-norato/Documentos/EXPERTIC/robot_recalificación/datos/datos_recalificar_empa.csv"
+            self.file_path = "/home/david-norato/Documentos/EXPERTIC/recalificar_actividades/datos/datos_recalificar_todo.xlsx"
             self.input_user_entry.insert(0,"exper-tic")
             self.input_pass_entry.insert(0,"exper-tic")
             self.archivo_cargado = True
-            self.opcion.set(2)
+            self.opcion.set(1)
         self.root.mainloop()
 
 
     def pre_run_especifico(self):
-        # Lemos los datos del archivo CSV
-        datos = leer_datos_recalificar(self.file_path, self.opcion.get())
-        if(len(datos[-1])<1): # Si no hay algún error al leer los datos
+        # Lemos los datos del archivo xlxs
+        leer_datos = leer_datos_recalificar()
+        datos = leer_datos.lectura_especifica(self.file_path, self.opcion.get())
+        if(len(leer_datos.get_log())<1): # Si no hay algún error al leer los datos
             # Se pasan los datos y la opción de la tarea del robot
             self.run_robot(datos,self.opcion.get())
         else:
             # Si hay por lo menos un error lo imprime en el label de la GUI
-            self.log += datos[-1]
-            self.label_logs_result.config(text = datos[-1])
+            self.log += leer_datos.get_log()
+            self.label_logs_result.config(text = leer_datos.get_log())
 
     def get_robot(self,driver_path):
         return robot_recalificar(driver_path)

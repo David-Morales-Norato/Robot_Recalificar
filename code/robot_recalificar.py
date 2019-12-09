@@ -1,4 +1,5 @@
 from Robot import Robot
+import numpy as np
 from selenium.common.exceptions import NoSuchElementException,StaleElementReferenceException
 
 class robot_recalificar(Robot):
@@ -15,21 +16,42 @@ class robot_recalificar(Robot):
 
         # Eleccion es el primer elemento
         eleccion = variables_de_control[0]
+        # Contador el segundo elemento
+        contador = variables_de_control[1]
+        
+        # Escogió recalificar todo
+        if(eleccion == 1):
+            primera_hoja = np.array(datos)
+            # Se separan los datos
+            fila = primera_hoja[:,contador]
+            # Adquirimos la actividar a recalificar
+            ACTIVIDAD = fila[1] 
+            # Si la elección es 1 o 2 los datos vienen empaquetados de fomra similar
 
-        CPL = datos[1][0] # Adquirimos el CPL a calificar
-        if(not (datos[2] == None and datos[3] == None and datos[4] == None)):
-            QUESTION_ID = datos[2][0] # Adquirimos el id de la pregunta a  recalificar
-            enunciados = datos[3] # Adquirimos los enunciados
-            resultados = datos[4] # Adquirimos las respuestas
+        else: # Recalificar pregunta de emparejamiento
+            # Obtenemos las dos primeras hojas
+            primera_hoja = np.array(datos[1][1:])
+            segunda_hoja = datos[2]
+
+            # Se separan los datos
+            fila = primera_hoja[:,contador]
+            # Adquirimos la actividar a recalificar
+            ACTIVIDAD = fila[0] 
+            # Si la elección es 1 o 2 los datos vienen empaquetados de fomra similar
+
+        if(eleccion ==2):
+            QUESTION_ID = fila[1] # Adquirimos el id de la pregunta a  recalificar
+            enunciados = segunda_hoja[0] # Adquirimos los enunciados
+            resultados = segunda_hoja[1] # Adquirimos las respuestas
         else: 
             QUESTION_ID = None
             enunciados = None
             resultados = None
         try:
             # Se busca el CPS a calificar
-            cps = self.driver.find_element_by_partial_link_text(CPL)
-            cps.location_once_scrolled_into_view
-            cps.click() 
+            actividad = self.driver.find_element_by_partial_link_text(ACTIVIDAD)
+            actividad.location_once_scrolled_into_view
+            actividad.click() 
 
         except Exception as e:
             # En caso de no ser encontrado se captura la excepción y  se registra en el log
@@ -94,8 +116,8 @@ class robot_recalificar(Robot):
             # Encontramos donde se va a modificar la nota y se le envía la nota asignada
             input_score = self.driver.find_element_by_xpath(".//div[@class = 'felement ftext']//input[@type = 'text']")
             input_score.location_once_scrolled_into_view
-            input_score.clear()
-            input_score.send_keys(str(nota))
+#            input_score.clear()
+#            input_score.send_keys(str(nota))
 
             # Se envía y la ventana cierra sola
             guardar = self.driver.find_element_by_xpath("//input[@id = 'id_submitbutton']")
