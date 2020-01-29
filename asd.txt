@@ -1,0 +1,19 @@
+Robot LOG: 
+
+ [1] Curso a modificar: 13317
+ [2] Se va a modificar: Revisión de la pregunta T01.01.07,B001,N1[Pregunta de prueba] en CPS1.1 por David Santiago Morales Norato
+ [3] Pregunta modificada satisfactoriamente 
+ [2] Se va a modificar: Revisión de la pregunta T01.01.07,B001,N1[Pregunta de prueba] en CPS1.1 por David Santiago Morales Norato
+ [3] Pregunta modificada satisfactoriamente 
+ [2] Se va a modificar: Revisión de la pregunta T01.01.07,B001,N1[Pregunta de prueba] en CPS1.1 por David Santiago Morales Norato
+ [3] Pregunta modificada satisfactoriamente 
+ [4] Curso terminado satisfactoriamente
+ [1] Curso a modificar: 13317
+ [2] Se va a modificar: Revisión de la pregunta T01.01.07,B001,N1[Pregunta de prueba] en CPS1.2 por David Santiago Morales Norato
+ [3] Pregunta modificada satisfactoriamente 
+ [2] Se va a modificar: Revisión de la pregunta T01.01.07,B001,N1[Pregunta de prueba] en CPS1.2 por David Santiago Morales Norato
+ [3] Pregunta modificada satisfactoriamente 
+ [2] Se va a modificar: Revisión de la pregunta T01.01.07,B001,N1[Pregunta de prueba] en CPS1.2 por David Santiago Morales Norato
+ [3] Pregunta modificada satisfactoriamente 
+ [4] Curso terminado satisfactoriamente
+GUI LOG: 
