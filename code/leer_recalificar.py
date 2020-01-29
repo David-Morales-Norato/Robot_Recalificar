@@ -11,13 +11,13 @@ class leer_datos_recalificar(leer_datos):
 
             # Si desean hacer una recalificación completa
             if(tipo_lectura == 1):
-                # Se lee el archivo xlxs
+                # Se lee el archivo xlsx
                 archivo_excel = pd.read_excel(file_path)
                 datos = self.lectura_cursos_actividad(archivo_excel)
 
             # Si desean hacer una recalificación para una pregunta de emparejamiento
             elif(tipo_lectura == 2):
-                # Se lee el archivo xlxs 
+                # Se lee el archivo xlsx 
                 archivo_excel = pd.read_excel(file_path, sheet_name=None)
                 datos = self.lectura_tipo_recalificar_emparejamiento(archivo_excel)
 

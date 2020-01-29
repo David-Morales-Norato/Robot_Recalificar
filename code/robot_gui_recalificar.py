@@ -5,10 +5,10 @@ DEBUG = True
 class recalificar_gui(robot_gui):
     def __init__(self):
         super().__init__()
+        self.root.title("Robot para recalificar preguntas")
         # Variable de control de la opción del tipo de recalificación que se va a usar
         self.opcion = tk.IntVar()
         self.opcion.set(0) # Se setea en 0, el caso en que no ha escogido ninguna opción
-
         # recalificar todo valor 1
         # recalificar emparejamiento valor 2
         # Botones que son las opciones
@@ -25,7 +25,7 @@ class recalificar_gui(robot_gui):
 
 
     def pre_run_especifico(self):
-        # Lemos los datos del archivo xlxs
+        # Lemos los datos del archivo xlsx
         leer_datos = leer_datos_recalificar()
         datos = leer_datos.lectura_especifica(self.file_path, self.opcion.get())
         if(len(leer_datos.get_log())<1): # Si no hay algún error al leer los datos

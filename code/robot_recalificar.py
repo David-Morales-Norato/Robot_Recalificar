@@ -112,12 +112,11 @@ class robot_recalificar(Robot):
             #Calculamos la nota que merece el estudiante 
             nota = self.calcular_nota_emparejamiento(enunciados,resultados)
             # Modificar emparejamiento
-
             # Encontramos donde se va a modificar la nota y se le envía la nota asignada
             input_score = self.driver.find_element_by_xpath(".//div[@class = 'felement ftext']//input[@type = 'text']")
             input_score.location_once_scrolled_into_view
-#            input_score.clear()
-#            input_score.send_keys(str(nota))
+            input_score.clear()
+            input_score.send_keys(str(nota))
 
             # Se envía y la ventana cierra sola
             guardar = self.driver.find_element_by_xpath("//input[@id = 'id_submitbutton']")
@@ -139,7 +138,6 @@ class robot_recalificar(Robot):
         enunciados_html = self.driver.find_elements_by_xpath("//table[@class = 'answer']//tr//td[@class = 'text']")
         # Obtenemos las respuestas del estudiante
         respuestas_html = self.driver.find_elements_by_xpath("//table[@class = 'answer']//tr//td//option[@selected='selected']")
-
         num_enun = len(enunciados_html) # Número de enunciados que hay que responder.
         puntaje_por_pregunta = max_punt/num_enun # Se calcula cuanto vale cada respuesta
 
@@ -149,10 +147,9 @@ class robot_recalificar(Robot):
         for index in range(num_enun):
             
             # Comparamos la respuesta del estudiante con la que debería ser
-            enun = enunciados_html[index].text
+            enun = eliminar_ultimo_espacio(enunciados_html[index].text)
             respuesta_dada = respuestas_html[index].text
             respuesta_correcta = diccionario.get(enun)
-
             if(respuesta_dada == respuesta_correcta): 
                 # En tal caso se aumenta el numero de respuestas bien
                 contador_respuestas_bien +=1
@@ -161,3 +158,7 @@ class robot_recalificar(Robot):
         nota = puntaje_por_pregunta*contador_respuestas_bien
         return nota
 
+def eliminar_ultimo_espacio(cadena):
+    while(' ' == cadena[-1]):
+        cadena = cadena[:-1]
+    return cadena

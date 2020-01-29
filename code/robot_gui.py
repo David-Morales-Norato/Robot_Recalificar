@@ -29,7 +29,6 @@ class robot_gui():
 
         #Ventana principal.
         self.root = tk.Tk()
-        self.root.title("Robot para recalificar preguntas")
         m = self.root.maxsize()
         self.root.geometry('{}x{}+0+0'.format(*m))
 
@@ -37,7 +36,7 @@ class robot_gui():
         self.frame_left = tk.Frame(self.root)
         self.frame_left.pack(side = "left")
 
-        #Botón para cargar los datos del csv
+        #Botón para cargar los datos del xlsx
         button_cargar_datos = tk.Button(self.frame_left, text = "Cargar datos.",comman = lambda:self.open_file()) 
         button_cargar_datos.grid(row = 0, column = 1) 
 
@@ -163,8 +162,8 @@ class robot_gui():
 
     def open_file(self):
         # Obtiene el path del archivo selexionado por el usuario
-        file_path = tk.filedialog.askopenfilename(filetypes =(("Archivo CSV", "*.csv"),("Todos los archivos","*.*")),
-                           title = "Escoge el archivo .csv")
+        file_path = tk.filedialog.askopenfilename(filetypes =(("Archivo xlsx", "*.xlsx"),("Todos los archivos","*.*")),
+                           title = "Escoge el archivo .xlsx")
         try:
             #Intenta abrirlo
             # Si existe puede procegir a otras verificaciones
