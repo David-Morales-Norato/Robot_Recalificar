@@ -1,5 +1,6 @@
 
 from abc import ABC,abstractmethod
+import pandas as pd
 import tkinter as tk
 import tkinter.filedialog
 import os
@@ -78,6 +79,11 @@ class robot_gui():
         # Se activa una vez que se haya terminado de ejecutar el robot
         self.button_guardar = tk.Button(self.frame_right, text = "Guardar log",state="disabled",comman = lambda:self.save_file()) 
         self.button_guardar.grid(row = 2, column = 0) 
+
+        # Botón que guardará los datos recopilados durante la recalificación.
+        # Se activa una vez que se haya terminado de ejecutar el robot
+        self.button_guardar_datos = tk.Button(self.frame_right, text = "Guardar datos obtenidos",state="disabled",comman = lambda:self.save_datos_recopilados()) 
+        self.button_guardar_datos.grid(row = 3, column = 0) 
 
         # En caso de que se quieran colocar varias opciones
         self.opcion = None
@@ -159,6 +165,7 @@ class robot_gui():
         # Activa el botón para ver las estadísticas
         self.button_log.config(state="normal")
         self.button_guardar.config(state="normal")
+        self.button_guardar_datos.config(state = 'normal')
         self.label_logs_result.config(text = "Terminado!")
 
         # Cierra el robot y el navegador
@@ -205,6 +212,21 @@ class robot_gui():
             self.log += "|No se pudo guardar el archivo  |Exeption: "+ str(e)
             self.label_logs_result.config(text = "|No se pudo guardar el archivo  |Exeption: "+ str(e))
 
+    def save_datos_recopilados(self):
+        try:
+            # Obtiene el path del archivo selexionado por el usuario
+            f = tkinter.filedialog.asksaveasfile(mode = 'w', defaultextension=".csv")
+            if f is None: # asksaveasfile return `None` if dialog closed with "cancel".
+                return
+
+            robot_datos = self.robot.datos_recopilados
+            path_save_file = f.name
+            pd.DataFrame(robot_datos).to_csv(path_save_file, index=False, header=False)
+
+                #Si no existe el archivo crea error
+        except Exception as e:
+            self.log += "|No se pudo guardar el archivo  |Exeption: "+ str(e)
+            self.label_logs_result.config(text = "|No se pudo guardar el archivo  |Exeption: "+ str(e))
 
 
     @abstractmethod

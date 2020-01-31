@@ -25,7 +25,7 @@ class robot_recalificar(Robot):
             # Se separan los datos
             fila = primera_hoja[:,contador]
             # Adquirimos la actividar a recalificar
-            ACTIVIDAD = fila[1] 
+            ACTIVIDAD = fila[1]
             # Si la elección es 1 o 2 los datos vienen empaquetados de fomra similar
 
         else: # Recalificar pregunta de emparejamiento
@@ -64,6 +64,14 @@ class robot_recalificar(Robot):
             self.driver.find_element_by_xpath("//input[@value='Recalificar todo']").click()
             self.driver.find_element_by_xpath("//input[@value = 'Continuar']").click()
 
+
+            # Para sacar estadísticas.
+            # Preparación para llegar a la tabla
+            table = self.driver.find_element_by_id("attempts")
+            main_window = self.driver.current_window_handle
+
+            self.recorrer_intentos_recalificados(table,fila)
+
         elif(eleccion == 2): # En caso de recalificar emparejamiento
             # Preparación para llegar a las preguntas
             table = self.driver.find_element_by_id("attempts")
@@ -74,6 +82,36 @@ class robot_recalificar(Robot):
 
         #Si no ha saltado alguna excepción, se guarda que fue un curso exitoso
         self.log+=self._LOGS[4]
+
+    def recorrer_intentos_recalificados(self, table, fila):
+        # Buscamos todos los intentos
+        intentos = self.driver.find_elements_by_xpath(".//td//a[@title = 'Revisión del intento']")
+        contador_recalificaciones = 0
+        # Se va a revisar cada intento si ha sido recalificado
+        
+
+        # Contador para saber la fila de la tabla y encontrar los datos a extraer
+        cont = 0
+
+        # Nombres de los estudiantes que intentaron realizar la actividad
+        nombres = self.driver.find_elements_by_xpath(".//td[@class = 'cell c2 bold']//a")[0::2]
+        # Ya que retorna 2 textos por cada casilla obtenemos solo el nombre del estudiante
+
+        for intento in intentos:
+            
+            # Si hay dos notas separadas por un '/'
+            # Significa que hay una recalificación
+            notas_intento = intento.text.replace("\n","").replace(',','.').split("/")
+            if(len(notas_intento)>1):
+                contador_recalificaciones += 1
+                nota_anterior = notas_intento[0]
+                nota_posterior = notas_intento[1]
+                nombre = nombres[cont].text
+                cont +=1
+                self.datos_recopilados.append([fila[0], fila[1], nombre, nota_anterior, nota_posterior ])
+                #actividad, id_curso, nombre_estudiante, nota_anterior, nota_posterior
+            
+            
 
     def recorrer_preguntas(self, table, main_window, question_id,enunciados,resultados):
         # Buscamos todas las preguntas que han sido respondidas por estudiantes

@@ -30,6 +30,8 @@ class Robot(ABC):
                         "\n [4] Curso terminado satisfactoriamente",
                         "\n [-4] Error al procesar curso: "]
 
+        self.datos_recopilados = []
+
 
     def autenticacion_tic(self, nickName, password):
         try:
