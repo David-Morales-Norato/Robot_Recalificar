@@ -1,4 +1,4 @@
-from Robot import Robot
+from Robot import Robot, time
 import numpy as np
 from selenium.common.exceptions import NoSuchElementException,StaleElementReferenceException
 
@@ -30,17 +30,17 @@ class robot_recalificar(Robot):
 
         else: # Recalificar pregunta de emparejamiento
             # Obtenemos las dos primeras hojas
-            primera_hoja = np.array(datos[1][1:])
+            primera_hoja = np.array(datos[1])
             segunda_hoja = datos[2]
 
             # Se separan los datos
             fila = primera_hoja[:,contador]
             # Adquirimos la actividar a recalificar
-            ACTIVIDAD = fila[0] 
+            ACTIVIDAD = fila[1] 
             # Si la elección es 1 o 2 los datos vienen empaquetados de fomra similar
 
         if(eleccion ==2):
-            QUESTION_ID = fila[1] # Adquirimos el id de la pregunta a  recalificar
+            QUESTION_ID = fila[2] # Adquirimos el id de la pregunta a  recalificar
             enunciados = segunda_hoja[0] # Adquirimos los enunciados
             resultados = segunda_hoja[1] # Adquirimos las respuestas
         else: 
@@ -72,14 +72,15 @@ class robot_recalificar(Robot):
 
             self.recorrer_intentos_recalificados(table,fila)
 
+
         elif(eleccion == 2): # En caso de recalificar emparejamiento
             # Preparación para llegar a las preguntas
             table = self.driver.find_element_by_id("attempts")
             main_window = self.driver.current_window_handle
 
             #Recorremos las preguntas en caso de que sean de emparejamiento
-            self.recorrer_preguntas(table, main_window, QUESTION_ID,enunciados,resultados)
-
+            self.recorrer_preguntas(table, main_window, QUESTION_ID,enunciados,resultados, fila)
+            
         #Si no ha saltado alguna excepción, se guarda que fue un curso exitoso
         self.log+=self._LOGS[4]
 
@@ -113,29 +114,36 @@ class robot_recalificar(Robot):
             
             
 
-    def recorrer_preguntas(self, table, main_window, question_id,enunciados,resultados):
+    def recorrer_preguntas(self, table, main_window, question_id,enunciados,resultados, fila):
         # Buscamos todas las preguntas que han sido respondidas por estudiantes
         questions = table.find_elements_by_xpath(".//*[@title = 'Revisar respuesta']")
+        cont = 0
+        nombres = self.driver.find_elements_by_xpath(".//td[@class = 'cell c2 bold']//a")[0::2]
 
         # Se va a revisar cada pregunta
         for question in questions:
+            nombre = nombres[cont].text
             question.click()
 
             # Cambiamos a la nueva ventana que es la preunta
             handles = self.driver.window_handles
             self.driver.switch_to.window(handles[-1])
             quest_window = self.driver.current_window_handle
-
+            quest_id_title = str(self.driver.title.split(" ")[4]).replace(" ","")
             # Verifica que la pregunta sea la que se va a modificar
-            if(question_id in self.driver.title):
+            if(str(question_id).replace(" ","") == quest_id_title):
                 # La cambia
-                self.cambiar_calificacion_emparejamiento(quest_window,enunciados,resultados)
                 
+                datos_notas = self.cambiar_calificacion_emparejamiento(quest_window,enunciados,resultados)
+                
+                self.datos_recopilados.append([fila[0], fila[1], nombre, datos_notas[0], datos_notas[1] ])
             # Si es o no es la pregunta solicitada, cierra y vuelve a la ventana original
             self.driver.close()
             self.driver.switch_to.window(main_window)
+            cont += 1
 
     def cambiar_calificacion_emparejamiento(self, quest_window,enunciados,resultados):
+        datos_cambio = []
         try:
             # Se guarda a quíen se le va a modificar
             self.log += self._LOGS[3] + self.driver.title
@@ -153,6 +161,8 @@ class robot_recalificar(Robot):
             # Encontramos donde se va a modificar la nota y se le envía la nota asignada
             input_score = self.driver.find_element_by_xpath(".//div[@class = 'felement ftext']//input[@type = 'text']")
             input_score.location_once_scrolled_into_view
+            nota_anterior = input_score.get_attribute("value")
+            print(nota_anterior)
             input_score.clear()
             input_score.send_keys(str(nota))
 
@@ -161,9 +171,14 @@ class robot_recalificar(Robot):
             guardar.location_once_scrolled_into_view
             guardar.click()
 
+            time.sleep(3)
             # guarda que modificó correctamente la pregunta y vuelve a la pestaña la pregunta
             self.log += self._LOGS[6]
             self.driver.switch_to.window(quest_window)
+
+            #nota anterior, y nueva nota
+            datos_cambio = [nota_anterior, nota]
+            return datos_cambio
         except Exception as e:
             # Si hay algún error guarda el fallo
             self.log +=self._LOGS[7] + str(e)

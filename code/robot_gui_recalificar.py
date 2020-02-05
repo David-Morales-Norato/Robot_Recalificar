@@ -16,11 +16,11 @@ class recalificar_gui(robot_gui):
         tk.Radiobutton(self.frame_left, text="recalificar emparejamiento",padx = 20, variable=self.opcion, value=2).grid(row=2,column=3)
 
         if(DEBUG):
-            self.file_path = "/home/david-norato/Documentos/EXPERTIC/recalificar_actividades/datos/datos_recalificar_todo.xlsx"
+            self.file_path = "/home/david-norato/Documentos/EXPERTIC/recalificar_actividades/datos/datos_recalificar_emparejamiento.xlsx"
             self.input_user_entry.insert(0,"exper-tic")
             self.input_pass_entry.insert(0,"exper-tic")
             self.archivo_cargado = True
-            self.opcion.set(1)
+            self.opcion.set(2)
         self.root.mainloop()
 
 
