@@ -13,7 +13,6 @@ class robot_recalificar(Robot):
         self.__RESCORE_STRING = "Escribir comentario o corregir la calificación"
 
     def tratamiento_curso(self,datos, variables_de_control):
-
         # Eleccion es el primer elemento
         eleccion = variables_de_control[0]
         # Contador el segundo elemento
@@ -115,39 +114,38 @@ class robot_recalificar(Robot):
             
 
     def recorrer_preguntas(self, table, main_window, question_id,enunciados,resultados, fila):
-        # Buscamos todas las preguntas que han sido respondidas por estudiantes
-        questions = table.find_elements_by_xpath(".//*[@title = 'Revisar respuesta']")
-        cont = 0
-        nombres = self.driver.find_elements_by_xpath(".//td[@class = 'cell c2 bold']//a")[0::2]
+        try: 
+            # Buscamos todas las preguntas que han sido respondidas por estudiantes
+            questions = table.find_elements_by_xpath(".//*[@title = 'Revisar respuesta']")
+            # Se va a revisar cada pregunta
+            for question in questions:
 
-        # Se va a revisar cada pregunta
-        for question in questions:
-            nombre = nombres[cont].text
-            question.click()
+                question.click()
 
-            # Cambiamos a la nueva ventana que es la preunta
-            handles = self.driver.window_handles
-            self.driver.switch_to.window(handles[-1])
-            quest_window = self.driver.current_window_handle
-            quest_id_title = str(self.driver.title.split(" ")[4]).replace(" ","")
-            # Verifica que la pregunta sea la que se va a modificar
-            if(str(question_id).replace(" ","") == quest_id_title):
-                # La cambia
-                
-                datos_notas = self.cambiar_calificacion_emparejamiento(quest_window,enunciados,resultados)
-                
-                self.datos_recopilados.append([fila[0], fila[1], nombre, datos_notas[0], datos_notas[1] ])
-            # Si es o no es la pregunta solicitada, cierra y vuelve a la ventana original
-            self.driver.close()
-            self.driver.switch_to.window(main_window)
-            cont += 1
+                # Cambiamos a la nueva ventana que es la preunta
+                handles = self.driver.window_handles
+                self.driver.switch_to.window(handles[-1])
+                quest_window = self.driver.current_window_handle
+                quest_id_title = str(self.driver.title).replace(" ","")
+
+                # Verifica que la pregunta sea la que se va a modificar
+                if(str(question_id).replace(" ","") in quest_id_title):
+                    # La cambia
+                    
+                    datos_notas = self.cambiar_calificacion_emparejamiento(quest_window,enunciados,resultados)
+                    self.datos_recopilados.append([fila[0], fila[1], datos_notas[0], datos_notas[1], datos_notas[2]  ])
+                # Si es o no es la pregunta solicitada, cierra y vuelve a la ventana original
+                self.driver.close()
+                self.driver.switch_to.window(main_window)
+        except Exception as e:
+            # Si hay algún error guarda el fallo
+            self.log += "Fallo al recorrer pregunas | " + str(e)
 
     def cambiar_calificacion_emparejamiento(self, quest_window,enunciados,resultados):
         datos_cambio = []
         try:
             # Se guarda a quíen se le va a modificar
             self.log += self._LOGS[3] + self.driver.title
-
             # Cambiamos a la pestaña de edición
             recal = self.driver.find_element_by_link_text(self.__RESCORE_STRING)
             recal.location_once_scrolled_into_view
@@ -157,14 +155,21 @@ class robot_recalificar(Robot):
 
             #Calculamos la nota que merece el estudiante 
             nota = self.calcular_nota_emparejamiento(enunciados,resultados)
+            
             # Modificar emparejamiento
             # Encontramos donde se va a modificar la nota y se le envía la nota asignada
             input_score = self.driver.find_element_by_xpath(".//div[@class = 'felement ftext']//input[@type = 'text']")
             input_score.location_once_scrolled_into_view
-            nota_anterior = input_score.get_attribute("value")
-            print(nota_anterior)
-            input_score.clear()
-            input_score.send_keys(str(nota))
+            nota_anterior = input_score.get_attribute("value").replace(",",".")
+
+            # Si ha sido posible calcular la nota referencia a la nota
+            # Entonces altera la nota
+            if nota != None:
+                nota_anterior = float(nota_anterior)
+                input_score.clear()
+                input_score.send_keys(str(nota))
+            else:
+                nota = nota_anterior
 
             # Se envía y la ventana cierra sola
             guardar = self.driver.find_element_by_xpath("//input[@id = 'id_submitbutton']")
@@ -176,40 +181,51 @@ class robot_recalificar(Robot):
             self.log += self._LOGS[6]
             self.driver.switch_to.window(quest_window)
 
-            #nota anterior, y nueva nota
-            datos_cambio = [nota_anterior, nota]
+            # Nombre del estudiante que se le recalificó
+            nombre = str(self.driver.title.split(" por ")[1])
+
+            #nombre, nota anterior y nueva nota
+            datos_cambio = [nombre, nota_anterior, nota]
             return datos_cambio
+
         except Exception as e:
             # Si hay algún error guarda el fallo
             self.log +=self._LOGS[7] + str(e)
+            
+            return ["-","-","-"]
+            
         
     def calcular_nota_emparejamiento(self,enunciados,resultados):
-        diccionario = dict(zip(enunciados,resultados))
-        # Obtenemos el puntaje total de la pregunta
-        max_punt = float(self.driver.find_element_by_xpath("//div[@class = 'grade']").text.split(" sobre ")[1].replace(',','.'))
-        # Obtenemos los enunciados
-        enunciados_html = self.driver.find_elements_by_xpath("//table[@class = 'answer']//tr//td[@class = 'text']")
-        # Obtenemos las respuestas del estudiante
-        respuestas_html = self.driver.find_elements_by_xpath("//table[@class = 'answer']//tr//td//option[@selected='selected']")
-        num_enun = len(enunciados_html) # Número de enunciados que hay que responder.
-        puntaje_por_pregunta = max_punt/num_enun # Se calcula cuanto vale cada respuesta
+        try: 
+            diccionario = dict(zip(enunciados,resultados))
+            # Obtenemos el puntaje total de la pregunta
+            max_punt = float(self.driver.find_element_by_xpath("//div[@class = 'grade']").text.split(" sobre ")[1].replace(',','.'))
+            # Obtenemos los enunciados
+            enunciados_html = self.driver.find_elements_by_xpath("//table[@class = 'answer']//tr//td[@class = 'text']")
+            # Obtenemos las respuestas del estudiante
+            respuestas_html = self.driver.find_elements_by_xpath("//table[@class = 'answer']//tr//td//option[@selected='selected']")
+            num_enun = len(enunciados) # Número de enunciados que hay que responder.
+            puntaje_por_pregunta = max_punt/num_enun # Se calcula cuanto vale cada respuesta
+            contador_respuestas_bien = 0
 
-        contador_respuestas_bien = 0
+            # Para cada enunciado de la pregunta
+            for index in range(num_enun):
+                
+                # Comparamos la respuesta del estudiante con la que debería ser
+                enun = eliminar_ultimo_espacio(enunciados_html[index].text)
+                respuesta_dada = respuestas_html[index].text
+                respuesta_correcta = diccionario.get(enun)
+                if(respuesta_dada == respuesta_correcta): 
+                    # En tal caso se aumenta el numero de respuestas bien
+                    contador_respuestas_bien +=1
 
-        # Para cada enunciado de la pregunta
-        for index in range(num_enun):
-            
-            # Comparamos la respuesta del estudiante con la que debería ser
-            enun = eliminar_ultimo_espacio(enunciados_html[index].text)
-            respuesta_dada = respuestas_html[index].text
-            respuesta_correcta = diccionario.get(enun)
-            if(respuesta_dada == respuesta_correcta): 
-                # En tal caso se aumenta el numero de respuestas bien
-                contador_respuestas_bien +=1
-
-        # Se calcula la nota que merece el estudiante
-        nota = puntaje_por_pregunta*contador_respuestas_bien
-        return nota
+            # Se calcula la nota que merece el estudiante
+            nota = puntaje_por_pregunta*contador_respuestas_bien
+            return nota
+        except Exception as e:
+            # Si hay algún error guarda el fallo
+            self.log += " Fallo al calcular la calificación."+ str(e)
+            return None
 
 def eliminar_ultimo_espacio(cadena):
     while(' ' == cadena[-1]):

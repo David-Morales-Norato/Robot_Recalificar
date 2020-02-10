@@ -1,7 +1,7 @@
 from robot_gui import robot_gui, tk
 from robot_recalificar import robot_recalificar
 from leer_recalificar import leer_datos_recalificar
-DEBUG = True
+DEBUG = False
 class recalificar_gui(robot_gui):
     def __init__(self):
         super().__init__()
