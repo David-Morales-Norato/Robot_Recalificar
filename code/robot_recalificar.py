@@ -37,7 +37,6 @@ class robot_recalificar(Robot):
             # Adquirimos la actividar a recalificar
             ACTIVIDAD = fila[1] 
             # Si la elección es 1 o 2 los datos vienen empaquetados de fomra similar
-
         if(eleccion ==2):
             QUESTION_ID = fila[2] # Adquirimos el id de la pregunta a  recalificar
             enunciados = segunda_hoja[0] # Adquirimos los enunciados
@@ -109,15 +108,23 @@ class robot_recalificar(Robot):
                 nombre = nombres[cont].text
                 cont +=1
                 self.datos_recopilados.append([fila[0], fila[1], nombre, nota_anterior, nota_posterior ])
-                #actividad, id_curso, nombre_estudiante, nota_anterior, nota_posterior
+                #actividad, id_curso, nombre_estudiante, nota_anterior de actividad, nota_posterior de actividad
             
             
 
     def recorrer_preguntas(self, table, main_window, question_id,enunciados,resultados, fila):
         try: 
+            notas_previas = self.driver.find_elements_by_xpath(".//td//a[@title = 'Revisión del intento']")
+            notas_previas = [ i.text for i in notas_previas]
             # Buscamos todas las preguntas que han sido respondidas por estudiantes
             questions = table.find_elements_by_xpath(".//*[@title = 'Revisar respuesta']")
             # Se va a revisar cada pregunta
+
+
+            cont = 0
+            total = len(notas_previas)
+            preg_por_est = int(np.floor(len(questions)/total))
+            personas = []
             for question in questions:
 
                 question.click()
@@ -130,13 +137,36 @@ class robot_recalificar(Robot):
 
                 # Verifica que la pregunta sea la que se va a modificar
                 if(str(question_id).replace(" ","") in quest_id_title):
-                    # La cambia
                     
+                    # La cambia
                     datos_notas = self.cambiar_calificacion_emparejamiento(quest_window,enunciados,resultados)
-                    self.datos_recopilados.append([fila[0], fila[1], datos_notas[0], datos_notas[1], datos_notas[2]  ])
+
+
+                    # calculamos el índice de el intento que se recalificó y lo añadimos al array
+                    # que controla a quienes se recalificó
+                    persona = int(np.floor(cont/preg_por_est))
+                    personas.append(persona)
+                    
+                    #Captura los datos
+                    self.datos_recopilados.append([fila[0], fila[1], datos_notas[0], datos_notas[1], datos_notas[2],notas_previas[persona], 0])
+                    #id_curso, actividad, nombre_estudiante, nota_anterior de pregunta, nota_posterior de pregunta
+
                 # Si es o no es la pregunta solicitada, cierra y vuelve a la ventana original
                 self.driver.close()
                 self.driver.switch_to.window(main_window)
+            
+                cont +=1
+            
+            self.driver.get(self.driver.current_url)
+            #hallamos la nueva nota del cuestionario
+            nuevas_notas = self.driver.find_elements_by_xpath(".//td//a[@title = 'Revisión del intento']")
+            nuevas_notas = [ i.text for i in nuevas_notas]
+
+            temp = np.array(self.datos_recopilados)
+            temp[:,-1] = np.array(nuevas_notas)[personas]
+            self.datos_recopilados = temp.tolist()
+
+
         except Exception as e:
             # Si hay algún error guarda el fallo
             self.log += "Fallo al recorrer pregunas | " + str(e)

@@ -1,0 +1,327 @@
+Robot LOG: 
+
+ [1] Curso a modificar: 12096
+ [-4] Error al procesar curso: 12096| EXCEPTION: Message: no such element: Unable to locate element: {"method":"css selector","selector":"[id="attempts"]"}
+  (Session info: chrome=80.0.3987.116)
+
+ [1] Curso a modificar: 12097
+ [2] Se va a modificar: Revisión de la pregunta -T05.04.01_B001_N0[Diamagnetismo y paramagnetismo] en CPS2.2+ por Maria Fernanda NiÑo Villamizar
+ [3] Pregunta modificada satisfactoriamente 
+ [2] Se va a modificar: Revisión de la pregunta -T05.04.01_B001_N0[Diamagnetismo y paramagnetismo] en CPS2.2+ por Maria Josse Camacho Jaimes
+ [3] Pregunta modificada satisfactoriamente 
+ [2] Se va a modificar: Revisión de la pregunta -T05.04.01_B001_N0[Diamagnetismo y paramagnetismo] en CPS2.2+ por Valentina Sepulveda Gaitan
+ [3] Pregunta modificada satisfactoriamente 
+ [2] Se va a modificar: Revisión de la pregunta -T05.04.01_B001_N0[Diamagnetismo y paramagnetismo] en CPS2.2+ por David Santiago Pabon Serrano
+ [3] Pregunta modificada satisfactoriamente 
+ [2] Se va a modificar: Revisión de la pregunta -T05.04.01_B001_N0[Diamagnetismo y paramagnetismo] en CPS2.2+ por Nicolas Armando Vasquez Rodriguez
+ [3] Pregunta modificada satisfactoriamente 
+ [4] Curso terminado satisfactoriamente
+ [1] Curso a modificar: 12098
+ [2] Se va a modificar: Revisión de la pregunta -T05.04.01_B001_N0[Diamagnetismo y paramagnetismo] en CPS2.2+ por Fabian Ernesto Hernandez Ramirez
+ [3] Pregunta modificada satisfactoriamente 
+ [2] Se va a modificar: Revisión de la pregunta -T05.04.01_B001_N0[Diamagnetismo y paramagnetismo] en CPS2.2+ por Daniel Tatis Romero
+ [3] Pregunta modificada satisfactoriamente 
+ [2] Se va a modificar: Revisión de la pregunta -T05.04.01_B001_N0[Diamagnetismo y paramagnetismo] en CPS2.2+ por Ronald Arias Manrique
+ [3] Pregunta modificada satisfactoriamente 
+ [2] Se va a modificar: Revisión de la pregunta -T05.04.01_B001_N0[Diamagnetismo y paramagnetismo] en CPS2.2+ por Juan Pablo Rapelo Afanador
+ [3] Pregunta modificada satisfactoriamente 
+ [2] Se va a modificar: Revisión de la pregunta -T05.04.01_B001_N0[Diamagnetismo y paramagnetismo] en CPS2.2+ por Jose Antonio Silva Sanchez
+ [3] Pregunta modificada satisfactoriamente 
+ [2] Se va a modificar: Revisión de la pregunta -T05.04.01_B001_N0[Diamagnetismo y paramagnetismo] en CPS2.2+ por Juan David Morantes Vergara
+ [3] Pregunta modificada satisfactoriamente 
+ [2] Se va a modificar: Revisión de la pregunta -T05.04.01_B001_N0[Diamagnetismo y paramagnetismo] en CPS2.2+ por Esneyder Mora Salcedo
+ [3] Pregunta modificada satisfactoriamente 
+ [2] Se va a modificar: Revisión de la pregunta -T05.04.01_B001_N0[Diamagnetismo y paramagnetismo] en CPS2.2+ por Andres Felipe Pedraza Sarmiento
+ [3] Pregunta modificada satisfactoriamente 
+ [2] Se va a modificar: Revisión de la pregunta -T05.04.01_B001_N0[Diamagnetismo y paramagnetismo] en CPS2.2+ por Jorge Luis Ortega Guerrero
+ [3] Pregunta modificada satisfactoriamente Fallo al recorrer pregunas | could not broadcast input array from shape (9) into shape (14)
+ [4] Curso terminado satisfactoriamente
+ [1] Curso a modificar: 12099
+ [2] Se va a modificar: Revisión de la pregunta -T05.04.01_B001_N0[Diamagnetismo y paramagnetismo] en CPS2.2+ por Juan Felipe Velandia Naranjo
+ [3] Pregunta modificada satisfactoriamente 
+ [2] Se va a modificar: Revisión de la pregunta -T05.04.01_B001_N0[Diamagnetismo y paramagnetismo] en CPS2.2+ por Sebastian David Mendoza Alvarado
+ [3] Pregunta modificada satisfactoriamente 
+ [2] Se va a modificar: Revisión de la pregunta -T05.04.01_B001_N0[Diamagnetismo y paramagnetismo] en CPS2.2+ por Jesus Fernando Ramirez Ardila
+ [3] Pregunta modificada satisfactoriamente 
+ [2] Se va a modificar: Revisión de la pregunta -T05.04.01_B001_N0[Diamagnetismo y paramagnetismo] en CPS2.2+ por Johan Steven Garces Serrano
+ [3] Pregunta modificada satisfactoriamente 
+ [2] Se va a modificar: Revisión de la pregunta -T05.04.01_B001_N0[Diamagnetismo y paramagnetismo] en CPS2.2+ por Sebastian Colmenares Perez
+ [3] Pregunta modificada satisfactoriamente 
+ [2] Se va a modificar: Revisión de la pregunta -T05.04.01_B001_N0[Diamagnetismo y paramagnetismo] en CPS2.2+ por Juan Felipe Colmenares Manrique
+ [3] Pregunta modificada satisfactoriamente Fallo al recorrer pregunas | could not broadcast input array from shape (6) into shape (20)
+ [4] Curso terminado satisfactoriamente
+ [1] Curso a modificar: 12100
+ [2] Se va a modificar: Revisión de la pregunta -T05.04.01_B001_N0[Diamagnetismo y paramagnetismo] en CPS2.2+ por David Santiago Ramirez Arias
+ [3] Pregunta modificada satisfactoriamente 
+ [2] Se va a modificar: Revisión de la pregunta -T05.04.01_B001_N0[Diamagnetismo y paramagnetismo] en CPS2.2+ por silvia andrea Angarita Villamizar
+ [3] Pregunta modificada satisfactoriamente 
+ [2] Se va a modificar: Revisión de la pregunta -T05.04.01_B001_N0[Diamagnetismo y paramagnetismo] en CPS2.2+ por Daniel Ivan Garzon MuÃoz
+ [3] Pregunta modificada satisfactoriamente 
+ [2] Se va a modificar: Revisión de la pregunta -T05.04.01_B001_N0[Diamagnetismo y paramagnetismo] en CPS2.2+ por Brayan Jesus Lizcano Moreno
+ [3] Pregunta modificada satisfactoriamente 
+ [2] Se va a modificar: Revisión de la pregunta -T05.04.01_B001_N0[Diamagnetismo y paramagnetismo] en CPS2.2+ por Rafael Cubides Rangel
+ [3] Pregunta modificada satisfactoriamente Fallo al recorrer pregunas | could not broadcast input array from shape (5) into shape (25)
+ [4] Curso terminado satisfactoriamente
+ [1] Curso a modificar: 12101
+ [2] Se va a modificar: Revisión de la pregunta -T05.04.01_B001_N0[Diamagnetismo y paramagnetismo] en CPS2.2+ Estructura electrónica de los átomos por Juliana Mildred Martinez Toledo
+ [3] Pregunta modificada satisfactoriamente 
+ [2] Se va a modificar: Revisión de la pregunta -T05.04.01_B001_N0[Diamagnetismo y paramagnetismo] en CPS2.2+ Estructura electrónica de los átomos por Diego Fernando Cruz Ramos
+ [3] Pregunta modificada satisfactoriamente 
+ [2] Se va a modificar: Revisión de la pregunta -T05.04.01_B001_N0[Diamagnetismo y paramagnetismo] en CPS2.2+ Estructura electrónica de los átomos por Paula Andrea Pedraza Amado
+ [3] Pregunta modificada satisfactoriamente 
+ [2] Se va a modificar: Revisión de la pregunta -T05.04.01_B001_N0[Diamagnetismo y paramagnetismo] en CPS2.2+ Estructura electrónica de los átomos por Juan Sebastian Ortiz CarreÃo
+ [3] Pregunta modificada satisfactoriamente 
+ [2] Se va a modificar: Revisión de la pregunta -T05.04.01_B001_N0[Diamagnetismo y paramagnetismo] en CPS2.2+ Estructura electrónica de los átomos por Abraham Almanya Silvera
+ [3] Pregunta modificada satisfactoriamente 
+ [2] Se va a modificar: Revisión de la pregunta -T05.04.01_B001_N0[Diamagnetismo y paramagnetismo] en CPS2.2+ Estructura electrónica de los átomos por Nicole Marcela Gomez Sandoval
+ [3] Pregunta modificada satisfactoriamente Fallo al recorrer pregunas | could not broadcast input array from shape (6) into shape (31)
+ [4] Curso terminado satisfactoriamente
+ [1] Curso a modificar: 12102
+ [2] Se va a modificar: Revisión de la pregunta -T05.04.01_B001_N0[Diamagnetismo y paramagnetismo] en CPS2.2+ por Cristhian Camilo Gallardo Ballesteros
+ [3] Pregunta modificada satisfactoriamente 
+ [2] Se va a modificar: Revisión de la pregunta -T05.04.01_B001_N0[Diamagnetismo y paramagnetismo] en CPS2.2+ por Jhoan Leonardo Silva Perez
+ [3] Pregunta modificada satisfactoriamente 
+ [2] Se va a modificar: Revisión de la pregunta -T05.04.01_B001_N0[Diamagnetismo y paramagnetismo] en CPS2.2+ por Laura Gonzalez Manrique
+ [3] Pregunta modificada satisfactoriamente 
+ [2] Se va a modificar: Revisión de la pregunta -T05.04.01_B001_N0[Diamagnetismo y paramagnetismo] en CPS2.2+ por Luis Esteban Castiblanco Castiblanco
+ [3] Pregunta modificada satisfactoriamente 
+ [2] Se va a modificar: Revisión de la pregunta -T05.04.01_B001_N0[Diamagnetismo y paramagnetismo] en CPS2.2+ por Darly Tatiana Manosalva Perez
+ [3] Pregunta modificada satisfactoriamente 
+ [2] Se va a modificar: Revisión de la pregunta -T05.04.01_B001_N0[Diamagnetismo y paramagnetismo] en CPS2.2+ por Valentina Reyes Hernandez
+ [3] Pregunta modificada satisfactoriamente 
+ [2] Se va a modificar: Revisión de la pregunta -T05.04.01_B001_N0[Diamagnetismo y paramagnetismo] en CPS2.2+ por Nathalia Orejarena Sarmiento
+ [3] Pregunta modificada satisfactoriamente 
+ [2] Se va a modificar: Revisión de la pregunta -T05.04.01_B001_N0[Diamagnetismo y paramagnetismo] en CPS2.2+ por Laura Sofia Franco Peña
+ [3] Pregunta modificada satisfactoriamente 
+ [2] Se va a modificar: Revisión de la pregunta -T05.04.01_B001_N0[Diamagnetismo y paramagnetismo] en CPS2.2+ por Mariana Nacar Ramirez
+ [3] Pregunta modificada satisfactoriamente 
+ [2] Se va a modificar: Revisión de la pregunta -T05.04.01_B001_N0[Diamagnetismo y paramagnetismo] en CPS2.2+ por Juan Camilo Salcedo Riaño
+ [3] Pregunta modificada satisfactoriamente 
+ [2] Se va a modificar: Revisión de la pregunta -T05.04.01_B001_N0[Diamagnetismo y paramagnetismo] en CPS2.2+ por Kelly Tatiana Carrascal Moreno
+ [3] Pregunta modificada satisfactoriamente Fallo al recorrer pregunas | could not broadcast input array from shape (11) into shape (42)
+ [4] Curso terminado satisfactoriamente
+ [1] Curso a modificar: 12103
+ [2] Se va a modificar: Revisión de la pregunta -T05.04.01_B001_N0[Diamagnetismo y paramagnetismo] en CPS2.2+ por Angie Carolina Castro Vargas
+ [3] Pregunta modificada satisfactoriamente 
+ [2] Se va a modificar: Revisión de la pregunta -T05.04.01_B001_N0[Diamagnetismo y paramagnetismo] en CPS2.2+ por Estefania Carvajal Grajales Fallo al calcular la calificación.list index out of range
+ [3] Pregunta modificada satisfactoriamente 
+ [2] Se va a modificar: Revisión de la pregunta -T05.04.01_B001_N0[Diamagnetismo y paramagnetismo] en CPS2.2+ por Julieth Estupiñan Aparicio
+ [3] Pregunta modificada satisfactoriamente 
+ [2] Se va a modificar: Revisión de la pregunta -T05.04.01_B001_N0[Diamagnetismo y paramagnetismo] en CPS2.2+ por Keyla Vanesa MariÑo Miranda
+ [3] Pregunta modificada satisfactoriamente 
+ [2] Se va a modificar: Revisión de la pregunta -T05.04.01_B001_N0[Diamagnetismo y paramagnetismo] en CPS2.2+ por Laura Daniela Cadena Barbosa
+ [3] Pregunta modificada satisfactoriamente 
+ [2] Se va a modificar: Revisión de la pregunta -T05.04.01_B001_N0[Diamagnetismo y paramagnetismo] en CPS2.2+ por Laura Cristina Esparza Amado
+ [3] Pregunta modificada satisfactoriamente Fallo al recorrer pregunas | could not broadcast input array from shape (6) into shape (48)
+ [4] Curso terminado satisfactoriamente
+ [1] Curso a modificar: 12104
+ [2] Se va a modificar: Revisión de la pregunta -T05.04.01_B001_N0[Diamagnetismo y paramagnetismo] en CPS2.2+ Estructura electrónica de los átomos por Manuel Nicolas Gonzalez Silva Fallo al calcular la calificación.list index out of range
+ [3] Pregunta modificada satisfactoriamente 
+ [2] Se va a modificar: Revisión de la pregunta -T05.04.01_B001_N0[Diamagnetismo y paramagnetismo] en CPS2.2+ Estructura electrónica de los átomos por Bryan Smith Avila Gil
+ [3] Pregunta modificada satisfactoriamente 
+ [2] Se va a modificar: Revisión de la pregunta -T05.04.01_B001_N0[Diamagnetismo y paramagnetismo] en CPS2.2+ Estructura electrónica de los átomos por Andres David Mendez Zambrano
+ [3] Pregunta modificada satisfactoriamente 
+ [2] Se va a modificar: Revisión de la pregunta -T05.04.01_B001_N0[Diamagnetismo y paramagnetismo] en CPS2.2+ Estructura electrónica de los átomos por Diego Armando Mogollon Reyes
+ [3] Pregunta modificada satisfactoriamente 
+ [2] Se va a modificar: Revisión de la pregunta -T05.04.01_B001_N0[Diamagnetismo y paramagnetismo] en CPS2.2+ Estructura electrónica de los átomos por Juan Pablo Carreño Guerrero
+ [3] Pregunta modificada satisfactoriamente 
+ [2] Se va a modificar: Revisión de la pregunta -T05.04.01_B001_N0[Diamagnetismo y paramagnetismo] en CPS2.2+ Estructura electrónica de los átomos por Oscar Danilo Ruiz Romero
+ [3] Pregunta modificada satisfactoriamente 
+ [2] Se va a modificar: Revisión de la pregunta -T05.04.01_B001_N0[Diamagnetismo y paramagnetismo] en CPS2.2+ Estructura electrónica de los átomos por Nicolas Mauricio Garcia Atencio
+ [3] Pregunta modificada satisfactoriamente 
+ [2] Se va a modificar: Revisión de la pregunta -T05.04.01_B001_N0[Diamagnetismo y paramagnetismo] en CPS2.2+ Estructura electrónica de los átomos por Daniel Steban Sanchez Rojas
+ [3] Pregunta modificada satisfactoriamente 
+ [2] Se va a modificar: Revisión de la pregunta -T05.04.01_B001_N0[Diamagnetismo y paramagnetismo] en CPS2.2+ Estructura electrónica de los átomos por Andrey Felipe PeÑa Almeida
+ [3] Pregunta modificada satisfactoriamente 
+ [2] Se va a modificar: Revisión de la pregunta -T05.04.01_B001_N0[Diamagnetismo y paramagnetismo] en CPS2.2+ Estructura electrónica de los átomos por Carol Valentina Valenzuela Forero
+ [3] Pregunta modificada satisfactoriamente 
+ [2] Se va a modificar: Revisión de la pregunta -T05.04.01_B001_N0[Diamagnetismo y paramagnetismo] en CPS2.2+ Estructura electrónica de los átomos por Keren Daniela Mendoza Nevado
+ [3] Pregunta modificada satisfactoriamente 
+ [2] Se va a modificar: Revisión de la pregunta -T05.04.01_B001_N0[Diamagnetismo y paramagnetismo] en CPS2.2+ Estructura electrónica de los átomos por Juan Sebastian Ortiz Delgado
+ [3] Pregunta modificada satisfactoriamente Fallo al recorrer pregunas | could not broadcast input array from shape (12) into shape (60)
+ [4] Curso terminado satisfactoriamente
+ [1] Curso a modificar: 12105
+ [2] Se va a modificar: Revisión de la pregunta -T05.04.01_B001_N0[Diamagnetismo y paramagnetismo] en CPS2.2+ por Juan Esteban Garcia Uribe
+ [3] Pregunta modificada satisfactoriamente 
+ [2] Se va a modificar: Revisión de la pregunta -T05.04.01_B001_N0[Diamagnetismo y paramagnetismo] en CPS2.2+ por Camilo Alejandro Castellanos Parada Fallo al calcular la calificación.list index out of range
+ [3] Pregunta modificada satisfactoriamente 
+ [2] Se va a modificar: Revisión de la pregunta -T05.04.01_B001_N0[Diamagnetismo y paramagnetismo] en CPS2.2+ por David Santiago Garcia Pinzon
+ [3] Pregunta modificada satisfactoriamente 
+ [2] Se va a modificar: Revisión de la pregunta -T05.04.01_B001_N0[Diamagnetismo y paramagnetismo] en CPS2.2+ por Daniela Jaimes Carvajal
+ [3] Pregunta modificada satisfactoriamente 
+ [2] Se va a modificar: Revisión de la pregunta -T05.04.01_B001_N0[Diamagnetismo y paramagnetismo] en CPS2.2+ por Sara Lucia Prada Saavedra
+ [3] Pregunta modificada satisfactoriamente 
+ [2] Se va a modificar: Revisión de la pregunta -T05.04.01_B001_N0[Diamagnetismo y paramagnetismo] en CPS2.2+ por Johan Steven Prada Calderon
+ [3] Pregunta modificada satisfactoriamente Fallo al recorrer pregunas | could not broadcast input array from shape (6) into shape (66)
+ [4] Curso terminado satisfactoriamente
+ [1] Curso a modificar: 12106
+ [2] Se va a modificar: Revisión de la pregunta -T05.04.01_B001_N0[Diamagnetismo y paramagnetismo] en CPS2.2+ por Karoll Marcela Villegas Arias Fallo al calcular la calificación.list index out of range
+ [3] Pregunta modificada satisfactoriamente 
+ [2] Se va a modificar: Revisión de la pregunta -T05.04.01_B001_N0[Diamagnetismo y paramagnetismo] en CPS2.2+ por Hallsay Alexandra Zafra Beltran
+ [3] Pregunta modificada satisfactoriamente Fallo al recorrer pregunas | could not broadcast input array from shape (2) into shape (68)
+ [4] Curso terminado satisfactoriamente
+ [1] Curso a modificar: 12107Fallo al recorrer pregunas | could not broadcast input array from shape (0) into shape (68)
+ [4] Curso terminado satisfactoriamente
+ [1] Curso a modificar: 12108
+ [2] Se va a modificar: Revisión de la pregunta -T05.04.01_B001_N0[Diamagnetismo y paramagnetismo] en CPS2.2+ por Juan Camilo Tibaduiza Acevedo
+ [3] Pregunta modificada satisfactoriamente 
+ [2] Se va a modificar: Revisión de la pregunta -T05.04.01_B001_N0[Diamagnetismo y paramagnetismo] en CPS2.2+ por Edgar Daniel Gualdron Pabon
+ [3] Pregunta modificada satisfactoriamente 
+ [2] Se va a modificar: Revisión de la pregunta -T05.04.01_B001_N0[Diamagnetismo y paramagnetismo] en CPS2.2+ por Jhonatan Agustin Leon Portilla
+ [3] Pregunta modificada satisfactoriamente 
+ [2] Se va a modificar: Revisión de la pregunta -T05.04.01_B001_N0[Diamagnetismo y paramagnetismo] en CPS2.2+ por Camilo Andres Sepulveda Villamizar
+ [3] Pregunta modificada satisfactoriamente 
+ [2] Se va a modificar: Revisión de la pregunta -T05.04.01_B001_N0[Diamagnetismo y paramagnetismo] en CPS2.2+ por Ashely Daniela Amaya López
+ [3] Pregunta modificada satisfactoriamente Fallo al recorrer pregunas | could not broadcast input array from shape (5) into shape (73)
+ [4] Curso terminado satisfactoriamente
+ [1] Curso a modificar: 12109
+ [2] Se va a modificar: Revisión de la pregunta -T05.04.01_B001_N0[Diamagnetismo y paramagnetismo] en CPS2.2+ por Cristian Camilo Guerrero Cruz
+ [3] Pregunta modificada satisfactoriamente 
+ [2] Se va a modificar: Revisión de la pregunta -T05.04.01_B001_N0[Diamagnetismo y paramagnetismo] en CPS2.2+ por Jeyson Andres Sanchez Tolosa
+ [3] Pregunta modificada satisfactoriamente 
+ [2] Se va a modificar: Revisión de la pregunta -T05.04.01_B001_N0[Diamagnetismo y paramagnetismo] en CPS2.2+ por Angel David Prada Archila
+ [3] Pregunta modificada satisfactoriamente 
+ [2] Se va a modificar: Revisión de la pregunta -T05.04.01_B001_N0[Diamagnetismo y paramagnetismo] en CPS2.2+ por Marlon Estiwar Romero Ballen
+ [3] Pregunta modificada satisfactoriamente Fallo al recorrer pregunas | could not broadcast input array from shape (4) into shape (77)
+ [4] Curso terminado satisfactoriamente
+ [1] Curso a modificar: 12110
+ [2] Se va a modificar: Revisión de la pregunta -T05.04.01_B001_N0[Diamagnetismo y paramagnetismo] en CPS2.2+ por Carlos Julian Saavedra Sanabria
+ [3] Pregunta modificada satisfactoriamente 
+ [2] Se va a modificar: Revisión de la pregunta -T05.04.01_B001_N0[Diamagnetismo y paramagnetismo] en CPS2.2+ por Johnnier Sebastian Parada Rivero
+ [3] Pregunta modificada satisfactoriamente 
+ [2] Se va a modificar: Revisión de la pregunta -T05.04.01_B001_N0[Diamagnetismo y paramagnetismo] en CPS2.2+ por Diego Alejandro Rodriguez Lizarazo
+ [3] Pregunta modificada satisfactoriamente 
+ [2] Se va a modificar: Revisión de la pregunta -T05.04.01_B001_N0[Diamagnetismo y paramagnetismo] en CPS2.2+ por Fabian Andres Garcia Lazaro
+ [3] Pregunta modificada satisfactoriamente 
+ [2] Se va a modificar: Revisión de la pregunta -T05.04.01_B001_N0[Diamagnetismo y paramagnetismo] en CPS2.2+ por Carlos Maldonado salazar
+ [3] Pregunta modificada satisfactoriamente 
+ [2] Se va a modificar: Revisión de la pregunta -T05.04.01_B001_N0[Diamagnetismo y paramagnetismo] en CPS2.2+ por Role Alexander Blanco Padilla
+ [3] Pregunta modificada satisfactoriamente 
+ [2] Se va a modificar: Revisión de la pregunta -T05.04.01_B001_N0[Diamagnetismo y paramagnetismo] en CPS2.2+ por Juan Esteban Lemus Cabrales
+ [3] Pregunta modificada satisfactoriamente 
+ [2] Se va a modificar: Revisión de la pregunta -T05.04.01_B001_N0[Diamagnetismo y paramagnetismo] en CPS2.2+ por Samuel Ricardo Fonseca Santamaria
+ [3] Pregunta modificada satisfactoriamente Fallo al recorrer pregunas | could not broadcast input array from shape (8) into shape (85)
+ [4] Curso terminado satisfactoriamente
+ [1] Curso a modificar: 12111
+ [2] Se va a modificar: Revisión de la pregunta -T05.04.01_B001_N0[Diamagnetismo y paramagnetismo] en CPS2.2+ por Eusebio Enrique Ramirez Tolosa
+ [3] Pregunta modificada satisfactoriamente 
+ [2] Se va a modificar: Revisión de la pregunta -T05.04.01_B001_N0[Diamagnetismo y paramagnetismo] en CPS2.2+ por Milton Vargas Amado
+ [3] Pregunta modificada satisfactoriamente 
+ [2] Se va a modificar: Revisión de la pregunta -T05.04.01_B001_N0[Diamagnetismo y paramagnetismo] en CPS2.2+ por Sebastian Alexander Aconcha Cano
+ [3] Pregunta modificada satisfactoriamente 
+ [2] Se va a modificar: Revisión de la pregunta -T05.04.01_B001_N0[Diamagnetismo y paramagnetismo] en CPS2.2+ por Fabian Andres Moreno Saavedra
+ [3] Pregunta modificada satisfactoriamente 
+ [2] Se va a modificar: Revisión de la pregunta -T05.04.01_B001_N0[Diamagnetismo y paramagnetismo] en CPS2.2+ por Juan Jose Urrea CarreÃo
+ [3] Pregunta modificada satisfactoriamente 
+ [2] Se va a modificar: Revisión de la pregunta -T05.04.01_B001_N0[Diamagnetismo y paramagnetismo] en CPS2.2+ por Camilo Andres Vega Taquiva
+ [3] Pregunta modificada satisfactoriamente 
+ [2] Se va a modificar: Revisión de la pregunta -T05.04.01_B001_N0[Diamagnetismo y paramagnetismo] en CPS2.2+ por Raul Andres Romero Ortega
+ [3] Pregunta modificada satisfactoriamente 
+ [2] Se va a modificar: Revisión de la pregunta -T05.04.01_B001_N0[Diamagnetismo y paramagnetismo] en CPS2.2+ por Sebastian Gonzalez Florez
+ [3] Pregunta modificada satisfactoriamente 
+ [2] Se va a modificar: Revisión de la pregunta -T05.04.01_B001_N0[Diamagnetismo y paramagnetismo] en CPS2.2+ por Diana Paola Ravelo Guevara
+ [3] Pregunta modificada satisfactoriamente 
+ [2] Se va a modificar: Revisión de la pregunta -T05.04.01_B001_N0[Diamagnetismo y paramagnetismo] en CPS2.2+ por Harvin Almeida Prada
+ [3] Pregunta modificada satisfactoriamente Fallo al recorrer pregunas | could not broadcast input array from shape (10) into shape (95)
+ [4] Curso terminado satisfactoriamente
+ [1] Curso a modificar: 12112
+ [2] Se va a modificar: Revisión de la pregunta -T05.04.01_B001_N0[Diamagnetismo y paramagnetismo] en CPS2.2+ por Julian Mauricio Villamizar Anaya
+ [3] Pregunta modificada satisfactoriamente 
+ [2] Se va a modificar: Revisión de la pregunta -T05.04.01_B001_N0[Diamagnetismo y paramagnetismo] en CPS2.2+ por Andres Julian Garcia Rueda
+ [3] Pregunta modificada satisfactoriamente 
+ [2] Se va a modificar: Revisión de la pregunta -T05.04.01_B001_N0[Diamagnetismo y paramagnetismo] en CPS2.2+ por Cesar Enrique Rojas Hernandez
+ [3] Pregunta modificada satisfactoriamente 
+ [2] Se va a modificar: Revisión de la pregunta -T05.04.01_B001_N0[Diamagnetismo y paramagnetismo] en CPS2.2+ por Daniel Fernando La rotta PeÃa
+ [3] Pregunta modificada satisfactoriamente 
+ [2] Se va a modificar: Revisión de la pregunta -T05.04.01_B001_N0[Diamagnetismo y paramagnetismo] en CPS2.2+ por Brayan Arley Rojas Mayorga
+ [3] Pregunta modificada satisfactoriamente Fallo al recorrer pregunas | could not broadcast input array from shape (5) into shape (100)
+ [4] Curso terminado satisfactoriamente
+ [1] Curso a modificar: 12123
+ [-2] Error al encontrar la actividad| Exception: Message: no such element: Unable to locate element: {"method":"partial link text","selector":"CPS2.2+"}
+  (Session info: chrome=80.0.3987.116)
+
+ [-4] Error al procesar curso: 12123| EXCEPTION: Message: no such element: Unable to locate element: {"method":"partial link text","selector":"Resultados"}
+  (Session info: chrome=80.0.3987.116)
+
+ [1] Curso a modificar: 12124
+ [-2] Error al encontrar la actividad| Exception: Message: no such element: Unable to locate element: {"method":"partial link text","selector":"CPS2.2+"}
+  (Session info: chrome=80.0.3987.116)
+
+ [-4] Error al procesar curso: 12124| EXCEPTION: Message: no such element: Unable to locate element: {"method":"partial link text","selector":"Resultados"}
+  (Session info: chrome=80.0.3987.116)
+
+ [1] Curso a modificar: 12095
+ [-2] Error al encontrar la actividad| Exception: Message: no such element: Unable to locate element: {"method":"partial link text","selector":"CPS2.2+"}
+  (Session info: chrome=80.0.3987.116)
+
+ [-4] Error al procesar curso: 12095| EXCEPTION: Message: no such element: Unable to locate element: {"method":"partial link text","selector":"Resultados"}
+  (Session info: chrome=80.0.3987.116)
+
+ [1] Curso a modificar: 12094
+ [-2] Error al encontrar la actividad| Exception: Message: no such element: Unable to locate element: {"method":"partial link text","selector":"CPS2.2+"}
+  (Session info: chrome=80.0.3987.116)
+
+ [-4] Error al procesar curso: 12094| EXCEPTION: Message: no such element: Unable to locate element: {"method":"partial link text","selector":"Resultados"}
+  (Session info: chrome=80.0.3987.116)
+
+ [1] Curso a modificar: 12093
+ [-2] Error al encontrar la actividad| Exception: Message: no such element: Unable to locate element: {"method":"partial link text","selector":"CPS2.2+"}
+  (Session info: chrome=80.0.3987.116)
+
+ [-4] Error al procesar curso: 12093| EXCEPTION: Message: no such element: Unable to locate element: {"method":"partial link text","selector":"Resultados"}
+  (Session info: chrome=80.0.3987.116)
+
+ [1] Curso a modificar: 12092
+ [-2] Error al encontrar la actividad| Exception: Message: no such element: Unable to locate element: {"method":"partial link text","selector":"CPS2.2+"}
+  (Session info: chrome=80.0.3987.116)
+
+ [-4] Error al procesar curso: 12092| EXCEPTION: Message: no such element: Unable to locate element: {"method":"partial link text","selector":"Resultados"}
+  (Session info: chrome=80.0.3987.116)
+
+ [1] Curso a modificar: 12091
+ [-2] Error al encontrar la actividad| Exception: Message: no such element: Unable to locate element: {"method":"partial link text","selector":"CPS2.2+"}
+  (Session info: chrome=80.0.3987.116)
+
+ [-4] Error al procesar curso: 12091| EXCEPTION: Message: no such element: Unable to locate element: {"method":"partial link text","selector":"Resultados"}
+  (Session info: chrome=80.0.3987.116)
+
+ [1] Curso a modificar: 12090
+ [-2] Error al encontrar la actividad| Exception: Message: no such element: Unable to locate element: {"method":"partial link text","selector":"CPS2.2+"}
+  (Session info: chrome=80.0.3987.116)
+
+ [-4] Error al procesar curso: 12090| EXCEPTION: Message: no such element: Unable to locate element: {"method":"partial link text","selector":"Resultados"}
+  (Session info: chrome=80.0.3987.116)
+
+ [1] Curso a modificar: 12089
+ [-2] Error al encontrar la actividad| Exception: Message: no such element: Unable to locate element: {"method":"partial link text","selector":"CPS2.2+"}
+  (Session info: chrome=80.0.3987.116)
+
+ [-4] Error al procesar curso: 12089| EXCEPTION: Message: no such element: Unable to locate element: {"method":"partial link text","selector":"Resultados"}
+  (Session info: chrome=80.0.3987.116)
+
+ [1] Curso a modificar: 12088
+ [-2] Error al encontrar la actividad| Exception: Message: no such element: Unable to locate element: {"method":"partial link text","selector":"CPS2.2+"}
+  (Session info: chrome=80.0.3987.116)
+
+ [-4] Error al procesar curso: 12088| EXCEPTION: Message: no such element: Unable to locate element: {"method":"partial link text","selector":"Resultados"}
+  (Session info: chrome=80.0.3987.116)
+
+ [1] Curso a modificar: 12087
+ [-2] Error al encontrar la actividad| Exception: Message: no such element: Unable to locate element: {"method":"partial link text","selector":"CPS2.2+"}
+  (Session info: chrome=80.0.3987.116)
+
+ [-4] Error al procesar curso: 12087| EXCEPTION: Message: no such element: Unable to locate element: {"method":"partial link text","selector":"Resultados"}
+  (Session info: chrome=80.0.3987.116)
+
+ [1] Curso a modificar: 12086
+ [-2] Error al encontrar la actividad| Exception: Message: no such element: Unable to locate element: {"method":"partial link text","selector":"CPS2.2+"}
+  (Session info: chrome=80.0.3987.116)
+
+ [-4] Error al procesar curso: 12086| EXCEPTION: Message: no such element: Unable to locate element: {"method":"partial link text","selector":"Resultados"}
+  (Session info: chrome=80.0.3987.116)
+
+GUI LOG: 
+
+ [-1] Fallo Al hacer autenticación| EXCEPTION: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=80.0.3987.116)

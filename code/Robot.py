@@ -70,6 +70,7 @@ class Robot(ABC):
         id_cursos = datos[0]
         # Va a indicar el curso actual que se está tratando
         contador = 0
+        
         for id in id_cursos: # Para cada curso de los que se proporcionaron Obtenemos el id del curso
             id = str(id)
             link_question = self.__QUESTION_LINK+id # links a los cuestionarios de ese curso
@@ -81,9 +82,11 @@ class Robot(ABC):
                 # La elección indica que tipo de tarea se va a realizar
                 # El contador indica que fila de los datos se está tratando
                 variables_de_control = [eleccion,contador]
+                contador = contador + 1
+                print(contador)
                 # Hacemos el debido tratamiento para el cual está recorriendo cursos
                 self.tratamiento_curso(datos,variables_de_control)
-                contador +=1
+                
             except Exception as e:
                 # Si ocurre un error se guarda el fallo
                 self.log+=self._LOGS[5]+id +"| EXCEPTION: "+ str(e)
