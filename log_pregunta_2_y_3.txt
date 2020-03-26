@@ -1,0 +1,117 @@
+Robot LOG: 
+
+ [1] Curso a modificar: 12123
+ [-2] Error al encontrar la actividad| Exception: Message: no such element: Unable to locate element: {"method":"partial link text","selector":"CPS2.3"}
+  (Session info: chrome=80.0.3987.116)
+
+ [-4] Error al procesar curso: 12123| EXCEPTION: Message: no such element: Unable to locate element: {"method":"partial link text","selector":"Resultados"}
+  (Session info: chrome=80.0.3987.116)
+
+ [1] Curso a modificar: 12124
+ [-2] Error al encontrar la actividad| Exception: Message: no such element: Unable to locate element: {"method":"partial link text","selector":"CPS2.3"}
+  (Session info: chrome=80.0.3987.116)
+
+ [-4] Error al procesar curso: 12124| EXCEPTION: Message: no such element: Unable to locate element: {"method":"partial link text","selector":"Resultados"}
+  (Session info: chrome=80.0.3987.116)
+
+ [1] Curso a modificar: 12095
+ [4] Curso terminado satisfactoriamente
+ [1] Curso a modificar: 12094
+ [4] Curso terminado satisfactoriamente
+ [1] Curso a modificar: 12093
+ [4] Curso terminado satisfactoriamente
+ [1] Curso a modificar: 12092
+ [-2] Error al encontrar la actividad| Exception: Message: element click intercepted: Element <a href="view.php?id=304186">...</a> is not clickable at point (501, 9). Other element would receive the click: <a title="..." href="https://tic.uis.edu.co/ava/course/index.php?categoryid=75">Vicerrectoría Académica</a>
+  (Session info: chrome=80.0.3987.116)
+
+ [-4] Error al procesar curso: 12092| EXCEPTION: Message: no such element: Unable to locate element: {"method":"partial link text","selector":"Resultados"}
+  (Session info: chrome=80.0.3987.116)
+
+ [1] Curso a modificar: 12091
+ [4] Curso terminado satisfactoriamente
+ [1] Curso a modificar: 12090
+ [4] Curso terminado satisfactoriamente
+ [1] Curso a modificar: 12089
+ [4] Curso terminado satisfactoriamente
+ [1] Curso a modificar: 12088
+ [4] Curso terminado satisfactoriamente
+ [1] Curso a modificar: 12087
+ [4] Curso terminado satisfactoriamente
+ [1] Curso a modificar: 12086
+ [4] Curso terminado satisfactoriamente
+ [1] Curso a modificar: 12123
+ [-2] Error al encontrar la actividad| Exception: Message: no such element: Unable to locate element: {"method":"partial link text","selector":"CPS2.2"}
+  (Session info: chrome=80.0.3987.116)
+
+ [-4] Error al procesar curso: 12123| EXCEPTION: Message: no such element: Unable to locate element: {"method":"partial link text","selector":"Resultados"}
+  (Session info: chrome=80.0.3987.116)
+
+ [1] Curso a modificar: 12124
+ [-2] Error al encontrar la actividad| Exception: Message: no such element: Unable to locate element: {"method":"partial link text","selector":"CPS2.2"}
+  (Session info: chrome=80.0.3987.116)
+
+ [-4] Error al procesar curso: 12124| EXCEPTION: Message: no such element: Unable to locate element: {"method":"partial link text","selector":"Resultados"}
+  (Session info: chrome=80.0.3987.116)
+
+ [1] Curso a modificar: 12095
+ [4] Curso terminado satisfactoriamente
+ [1] Curso a modificar: 12094
+ [4] Curso terminado satisfactoriamente
+ [1] Curso a modificar: 12093
+ [4] Curso terminado satisfactoriamente
+ [1] Curso a modificar: 12092
+ [-2] Error al encontrar la actividad| Exception: Message: element click intercepted: Element <a href="view.php?id=304185">...</a> is not clickable at point (501, 9). Other element would receive the click: <a title="..." href="https://tic.uis.edu.co/ava/course/index.php?categoryid=75">Vicerrectoría Académica</a>
+  (Session info: chrome=80.0.3987.116)
+
+ [-4] Error al procesar curso: 12092| EXCEPTION: Message: no such element: Unable to locate element: {"method":"partial link text","selector":"Resultados"}
+  (Session info: chrome=80.0.3987.116)
+
+ [1] Curso a modificar: 12091
+ [4] Curso terminado satisfactoriamente
+ [1] Curso a modificar: 12090
+ [4] Curso terminado satisfactoriamente
+ [1] Curso a modificar: 12089
+ [4] Curso terminado satisfactoriamente
+ [1] Curso a modificar: 12088
+ [4] Curso terminado satisfactoriamente
+ [1] Curso a modificar: 12087
+ [4] Curso terminado satisfactoriamente
+ [1] Curso a modificar: 12086
+ [4] Curso terminado satisfactoriamente
+ [1] Curso a modificar: 12096
+ [4] Curso terminado satisfactoriamente
+ [1] Curso a modificar: 12097
+ [4] Curso terminado satisfactoriamente
+ [1] Curso a modificar: 12098
+ [4] Curso terminado satisfactoriamente
+ [1] Curso a modificar: 12099
+ [4] Curso terminado satisfactoriamente
+ [1] Curso a modificar: 12100
+ [4] Curso terminado satisfactoriamente
+ [1] Curso a modificar: 12101
+ [4] Curso terminado satisfactoriamente
+ [1] Curso a modificar: 12102
+ [4] Curso terminado satisfactoriamente
+ [1] Curso a modificar: 12103
+ [4] Curso terminado satisfactoriamente
+ [1] Curso a modificar: 12104
+ [4] Curso terminado satisfactoriamente
+ [1] Curso a modificar: 12105
+ [4] Curso terminado satisfactoriamente
+ [1] Curso a modificar: 12106
+ [4] Curso terminado satisfactoriamente
+ [1] Curso a modificar: 12107
+ [4] Curso terminado satisfactoriamente
+ [1] Curso a modificar: 12108
+ [4] Curso terminado satisfactoriamente
+ [1] Curso a modificar: 12109
+ [4] Curso terminado satisfactoriamente
+ [1] Curso a modificar: 12110
+ [4] Curso terminado satisfactoriamente
+ [1] Curso a modificar: 12111
+ [4] Curso terminado satisfactoriamente
+ [1] Curso a modificar: 12112
+ [4] Curso terminado satisfactoriamente
+GUI LOG: 
+
+ No ha sido posible cargar el archivo: 
