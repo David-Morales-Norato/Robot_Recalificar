@@ -11,6 +11,7 @@ class robot_recalificar(Robot):
         self._LOGS = self._LOGS + logs_recalificacion_preguntas
         # Texto para recalificar una pregunta
         self.__RESCORE_STRING = "Escribir comentario o corregir la calificación"
+        self.datos_recopilados.append(["id_curso", "nombre actividad", "nombre estudiante", "nota anterior", "nota posterior"])
 
     def tratamiento_curso(self,datos, variables_de_control):
         # Eleccion es el primer elemento
