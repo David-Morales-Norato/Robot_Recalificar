@@ -83,7 +83,6 @@ class Robot(ABC):
                 # El contador indica que fila de los datos se está tratando
                 variables_de_control = [eleccion,contador]
                 contador = contador + 1
-                print(contador)
                 # Hacemos el debido tratamiento para el cual está recorriendo cursos
                 self.tratamiento_curso(datos,variables_de_control)
                 

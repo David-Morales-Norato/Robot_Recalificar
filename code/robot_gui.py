@@ -218,7 +218,6 @@ class robot_gui():
             robot_datos = self.robot.datos_recopilados
             path_save_file = f.name
             pd.DataFrame(robot_datos).to_excel(path_save_file, index = False, header=False)
-            print(robot_datos)
                 #Si no existe el archivo crea error
         except Exception as e:
             self.log += "|No se pudo guardar el archivo  |Exeption: "+ str(e)
